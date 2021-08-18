@@ -1,9 +1,9 @@
 # Tarea 0
 
-# SGH SystemContext
+## SGH SystemContext
 
 ![SystemContext](system_context_view.png)
 
-# SGH ContainerView
+## SGH ContainerView
 
 ![ContainerView](container_view.png)
