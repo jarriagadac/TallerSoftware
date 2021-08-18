@@ -53,4 +53,5 @@ classDiagram
     Recepcionista --|> Usuario: 
  
     AdministradorReserva ..> Reserva: caduca
+
 ```
