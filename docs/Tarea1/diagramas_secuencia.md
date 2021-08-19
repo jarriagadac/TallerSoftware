@@ -1,6 +1,6 @@
 # Tarea 1.2
 
-## (A) Hacer Reservas
+## (A) Hacer Reservas (para revisar)
 
 Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagramas de secuencia de UML, para el caso de uso Hacer Reserva (CU1). Para ello considerar solamente los casos de uso incluidos Identificar Cliente en Recepción (CU8) y Alta Cliente.
 
@@ -33,6 +33,36 @@ sequenceDiagram
     CreadorReserva ->> SGH: registrarReserva(hotel, tipo_habitacion, finicio, ffin)
 
     Note over SGH,SistemaDeMensajería: Incluir CU10
+```
+
+## Modificar Reserva (para revisar)
+
+![ModificarReserva](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXLDrWFcbiAgICBOb3RlIG92ZXIgQ3JlYWRvclJlc2VydmEsU2lzdGVtYURlTWVuc2FqZXLDrWE6IElkZW50aWZpY2FyIENsaWVudGUgKENVOHxDVTkpXG4gICAgTm90ZSBvdmVyIENyZWFkb3JSZXNlcnZhLFNpc3RlbWFEZU1lbnNhamVyw61hOiBJZGVudGlmaWNhciBSZXNlcnZhIGRlIENsaWVudGUgKENVNylcblxuICAgICUlIDNcbiAgICBsb29wIG1vZGlmaWNhciByZXNlcnZhXG4gICAgICAgIGxvb3AgZW5jb250cmFyIGhvdGVsIGRpc3BvbmlibGVcbiAgICAgICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PiBTR0g6IGRpc3BvbmliaWxpZGFkID0gY29uZmlybWFyRGlzcG9uaWJpbGlkYWQoaG90ZWwsIHRpcG9faGFiaXRhY2lvbiwgZmluaWNpbywgZmZpbikgOiBCb29sXG4gICAgICAgICAgICBhbHQgbm8gaGF5IGRpc3BvbmliaWxpZGFkXG4gICAgICAgICAgICAgICAgQ3JlYWRvclJlc2VydmEgLT4-IFNHSDogYWx0ZXJuYXRpdmFzID0gYnVzY2FyQWx0ZXJuYXRpdmFzKHBhaXMsIHRpcG9faGFiaXRhY2lvbiwgZmluaWNpbywgZmZpbikgOiBMaXN0PEhvdGVsPlxuICAgICAgICAgICAgZW5kXG4gICAgICAgIGVuZFxuXG4gICAgICAgIGFsdCBjb25maXJtYSBtb2RpZmljYWNpb25cbiAgICAgICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PiBTR0g6IG1vZGlmaWNhclJlc2VydmEoaWQsIGhvdGVsLCB0aXBvX2hhYml0YWNpb24sIGZpbmljaW8sIGZmaW4pXG4gICAgICAgICAgICBOb3RlIG92ZXIgU0dILFNpc3RlbWFEZU1lbnNhamVyw61hOiBDb25maXJtYXIgUmVzZXJ2YSAoQ1UxMClcbiAgICAgICAgZWxzZSBubyBtb2RpZmljYXIgcmVzZXJ2YVxuXG4gICAgICAgIGVuZFxuICAgIGVuZCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
+
+```
+sequenceDiagram 
+    participant CreadorReserva
+    participant SGH
+    participant SistemaDeMensajería
+    Note over CreadorReserva,SistemaDeMensajería: Identificar Cliente (CU8|CU9)
+    Note over CreadorReserva,SistemaDeMensajería: Identificar Reserva de Cliente (CU7)
+
+    %% 3
+    loop modificar reserva
+        loop encontrar hotel disponible
+            CreadorReserva ->> SGH: disponibilidad = confirmarDisponibilidad(hotel, tipo_habitacion, finicio, ffin) : Bool
+            alt no hay disponibilidad
+                CreadorReserva ->> SGH: alternativas = buscarAlternativas(pais, tipo_habitacion, finicio, ffin) : List<Hotel>
+            end
+        end
+
+        alt confirma modificacion
+            CreadorReserva ->> SGH: modificarReserva(id, hotel, tipo_habitacion, finicio, ffin)
+            Note over SGH,SistemaDeMensajería: Confirmar Reserva (CU10)
+        else no modificar reserva
+
+        end
+    end
 ```
 
 ## REVISAR DE AQUI HACIA ABAJO
