@@ -1,6 +1,6 @@
 # Tarea 1.2
 
-## (A) Hacer Reservas (para revisar)
+## (A) Hacer Reservas
 
 Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagramas de secuencia de UML, para el caso de uso Hacer Reserva (CU1). Para ello considerar solamente los casos de uso incluidos Identificar Cliente en Recepción (CU8) y Alta Cliente.
 
