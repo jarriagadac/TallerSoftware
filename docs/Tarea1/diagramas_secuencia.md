@@ -4,7 +4,7 @@
 
 Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagramas de secuencia de UML, para el caso de uso Hacer Reserva (CU1). Para ello considerar solamente los casos de uso incluidos Identificar Cliente en Recepción (CU8) y Alta Cliente.
 
-![HacerReservas](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXLDrWFcblxuICAgICUlIDFcbiAgICBOb3RlIG92ZXIgQ3JlYWRvclJlc2VydmEsU2lzdGVtYURlTWVuc2FqZXLDrWE6IEluY2x1aXIgSWRlbnRpZmljYXIgQ2xpZW50ZSAoQ1U4fENVOSlcbiAgICAlJSAxYVxuICAgIGFsdCBjbGllbnRlIG5vIHJlZ2lzdHJhZG9cbiAgICAgICAgTm90ZSBvdmVyIENyZWFkb3JSZXNlcnZhLFNpc3RlbWFEZU1lbnNhamVyw61hOiBBbHRhIGRlIENsaWVudGVcbiAgICBlbmRcblxuICAgICUlIDIgeSAzXG4gICAgbG9vcFxuICAgICAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiBkaXNwb25pYmlsaWRhZCA9IGNvbmZpcm1hckRpc3BvbmliaWxpZGFkKGhvdGVsOiBIb3RlbCwgdGlwb19oYWJpdGFjaW9uOiBUaXBvSGFiaXRhY2lvbiwgZmluaWNpbzogZGF0ZSwgZmZpbjogZGF0ZSkgOiBCb29sXG4gICAgICAgIGFsdCBubyBoYXkgZGlzcG9uaWJpbGlkYWRcbiAgICAgICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PiBTR0g6IGFsdGVybmF0aXZhcyA9IGJ1c2NhckFsdGVybmF0aXZhcyhwYWlzOiBzdHIsIHRpcG9faGFiaXRhY2lvbjogVGlwb0hhYml0YWNpb24sIGZpbmljaW86IGRhdGUsIGZmaW46IGRhdGUpIDogTGlzdDxIb3RlbD5cbiAgICAgICAgZW5kXG4gICAgZW5kXG4gICAgXG4gICAgJSU0XG4gICAgQ3JlYWRvclJlc2VydmEgLT4-IFNHSDogcmVnaXN0cmFyUmVzZXJ2YShob3RlbDogSG90ZWwsIHRpcG9faGFiaXRhY2lvbjogVGlwb0hhYml0YWNpb24sIGZpbmljaW86IGRhdGUsIGZmaW46IGRhdGUsIGNsaWVudGU6IENsaWVudGUpXG5cbiAgICBOb3RlIG92ZXIgU0dILFNpc3RlbWFEZU1lbnNhamVyw61hOiBJbmNsdWlyIENvbmZpcm1hciBSZXNlcnZhIChDVTEwKSIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
+![HacerReservas](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXLDrWFcblxuICAgICUlIDFcbiAgICBhbHQgY2xpZW50ZSBubyByZWdpc3RyYWRvXG4gICAgICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTR0g6IEFsdGEgZGUgQ2xpZW50ZVxuICAgIGVsc2UgY2xpZW50ZSByZWdpc3RyYWRvXG4gICAgICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTR0g6IEluY2x1aXIgSWRlbnRpZmljYXIgQ2xpZW50ZSAoQ1U4fENVOSlcbiAgICBlbmRcblxuICAgICUlIDIgeSAzXG4gICAgbG9vcFxuICAgICAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiBkaXNwb25pYmlsaWRhZCA9IGNvbmZpcm1hckRpc3BvbmliaWxpZGFkKGlkX2hvdGVsOiBpbnQsIGlkX3RpcG9faGFiaXRhY2lvbjogaW50LCBmaW5pY2lvOiBkYXRlLCBmZmluOiBkYXRlKSA6IEJvb2xcbiAgICAgICAgb3B0IG5vIGhheSBkaXNwb25pYmlsaWRhZFxuICAgICAgICAgICAgQ3JlYWRvclJlc2VydmEgLT4-IFNHSDogYWx0ZXJuYXRpdmFzID0gYnVzY2FyQWx0ZXJuYXRpdmFzKHBhaXM6IHN0ciwgaWRfdGlwb19oYWJpdGFjaW9uOiBpbnQsIGZpbmljaW86IGRhdGUsIGZmaW46IGRhdGUpIDogTGlzdDxIb3RlbD5cbiAgICAgICAgZW5kXG4gICAgZW5kXG4gICAgXG4gICAgJSU0XG4gICAgQ3JlYWRvclJlc2VydmEgLT4-IFNHSDogcmVnaXN0cmFyUmVzZXJ2YShpZF9ob3RlbDogaW50LCBpZF90aXBvX2hhYml0YWNpb246IGludCwgZmluaWNpbzogZGF0ZSwgZmZpbjogZGF0ZSlcblxuICAgIE5vdGUgb3ZlciBTR0gsU2lzdGVtYURlTWVuc2FqZXLDrWE6IEluY2x1aXIgQ29uZmlybWFyIFJlc2VydmEgKENVMTApIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
 
 ```
 sequenceDiagram 
@@ -13,22 +13,22 @@ sequenceDiagram
     participant SistemaDeMensajería
 
     %% 1
-    Note over CreadorReserva,SistemaDeMensajería: Incluir Identificar Cliente (CU8|CU9)
-    %% 1a
     alt cliente no registrado
-        Note over CreadorReserva,SistemaDeMensajería: Alta de Cliente
+        Note over CreadorReserva,SGH: Alta de Cliente
+    else cliente registrado
+        Note over CreadorReserva,SGH: Incluir Identificar Cliente (CU8|CU9)
     end
 
     %% 2 y 3
     loop
-        CreadorReserva ->> SGH: disponibilidad = confirmarDisponibilidad(hotel: Hotel, tipo_habitacion: TipoHabitacion, finicio: date, ffin: date) : Bool
-        alt no hay disponibilidad
-            CreadorReserva ->> SGH: alternativas = buscarAlternativas(pais: str, tipo_habitacion: TipoHabitacion, finicio: date, ffin: date) : List<Hotel>
+        CreadorReserva ->> SGH: disponibilidad = confirmarDisponibilidad(id_hotel: int, id_tipo_habitacion: int, finicio: date, ffin: date) : Bool
+        opt no hay disponibilidad
+            CreadorReserva ->> SGH: alternativas = buscarAlternativas(pais: str, id_tipo_habitacion: int, finicio: date, ffin: date) : List<Hotel>
         end
     end
     
     %%4
-    CreadorReserva ->> SGH: registrarReserva(hotel: Hotel, tipo_habitacion: TipoHabitacion, finicio: date, ffin: date, cliente: Cliente)
+    CreadorReserva ->> SGH: registrarReserva(id_hotel: int, id_tipo_habitacion: int, finicio: date, ffin: date)
 
     Note over SGH,SistemaDeMensajería: Incluir Confirmar Reserva (CU10)
 ```
