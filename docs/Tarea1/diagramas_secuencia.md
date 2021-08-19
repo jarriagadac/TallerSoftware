@@ -33,110 +33,35 @@ sequenceDiagram
     Note over SGH,SistemaDeMensajería: Incluir Confirmar Reserva (CU10)
 ```
 
-## (B) Modificar Reserva (para revisar)
+## (B) Modificar Reserva
 
 Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagramas de secuencia de UML, para el caso de uso Modificar Reserva (CU2).
 
-### version 1
-
-![Tarea 1.2 - Diagrama de secuencia B)](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXLDrWFcbiAgICBOb3RlIG92ZXIgQ3JlYWRvclJlc2VydmEsU2lzdGVtYURlTWVuc2FqZXLDrWE6IEluY2x1aXIgQ1U4IHkgQ1U5XG4gICAgTm90ZSBvdmVyIENyZWFkb3JSZXNlcnZhLFNpc3RlbWFEZU1lbnNhamVyw61hOiBJbmNsdWlyIENVN1xuIFxuICAgIGFsdCBTZSBxdWllcmUgbW9kaWZpY2FyIGxhIHJlc2VydmEgXG4gICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PisgU2lzdGVtYURlTWVuc2FqZXLDrWE6IE1vZGlmaWNhckRhdG9zUmVzZXJ2YShmZWNoYV9pbmljaW8sIGZlY2hhX3Rlcm1pbm8sIGVzdGFkbylcbiAgICAgICAgU2lzdGVtYURlTWVuc2FqZXLDrWEgLT4-LSBTaXN0ZW1hRGVNZW5zYWplcsOtYTogVmVyaWZpY2FyRGlzcG9uaWJpbGlkYWQoZmVjaGFfaW5pY2lvLCBmZWNoYV90ZXJtaW5vLGVzdGFkbylcbiAgICBlbHNlIERlc2lzdGUgZGUgY3JlYXIgbGEgcmVzZXJ2YVxuICAgICAgICBTaXN0ZW1hRGVNZW5zYWplcsOtYSAtLT4-KyBDcmVhZG9yUmVzZXJ2YTogVm9sdmVyTWVudUluaWNpYWwoKVxuICAgIGVuZFxuXG4gICAgYWx0IE5vIGhheSBkaXNwb25pYmlsaWRhZFxuICAgICAgICBTaXN0ZW1hRGVNZW5zYWplcsOtYSAtPj4rIFNpc3RlbWFEZU1lbnNhamVyw61hOiBCdXNjYXJEaXNwb25pYmlsaWRhZE90cm9zSG90ZWxlcyhmZWNoYV9pbmljaW8sIGZlY2hhX3Rlcm1pbm8sZXN0YWRvKVxuICAgICAgICBTaXN0ZW1hRGVNZW5zYWplcsOtYSAtLT4-KyBDcmVhZG9yUmVzZXJ2YTogTm90aWZpY2FyRGlzcG9uaWJpbGlkYWQoKVxuICAgICAgICBDcmVhZG9yUmVzZXJ2YSAtPj4tIFNpc3RlbWFEZU1lbnNhamVyw61hOiBNb2RpZmljYXJEYXRvc1Jlc2VydmEoZmVjaGFfaW5pY2lvLCBmZWNoYV90ZXJtaW5vLCBlc3RhZG8pXG4gICAgZWxzZSBIYXkgZGlzcG9uaWJpbGlkYWQgKGVuIGhvdGVsIGRlIHN1IGNvbnZlbmllbmNpYSlcbiAgICAgICAgQ3JlYWRvclJlc2VydmEgLT4-KyBTaXN0ZW1hRGVNZW5zYWplcsOtYTogTW9kaWZpY2FyRGF0b3NSZXNlcnZhKGZlY2hhX2luaWNpbywgZmVjaGFfdGVybWlubywgZXN0YWRvKVxuICAgIGVuZFxuXG4gICAgQ3JlYWRvclJlc2VydmEgLT4-KyBTaXN0ZW1hRGVNZW5zYWplcsOtYTogUmVnaXN0cmFyUmVzZXJ2YShmZWNoYV9pbmljaW8sIGZlY2hhX3Rlcm1pbm8sIGVzdGFkbylcblxuICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTaXN0ZW1hRGVNZW5zYWplcsOtYTogSW5jbHVpciBDVTEwXG5cblxuXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
-
-```
-sequenceDiagram 
-    participant CreadorReserva
-    participant SistemaDeMensajería
-    Note over CreadorReserva,SistemaDeMensajería: Incluir CU8 y CU9
-    Note over CreadorReserva,SistemaDeMensajería: Incluir CU7
- 
-    alt Se quiere modificar la reserva 
-        CreadorReserva ->>+ SistemaDeMensajería: ModificarDatosReserva(fecha_inicio, fecha_termino, estado)
-        SistemaDeMensajería ->>- SistemaDeMensajería: VerificarDisponibilidad(fecha_inicio, fecha_termino,estado)
-    else Desiste de crear la reserva
-        SistemaDeMensajería -->>+ CreadorReserva: VolverMenuInicial()
-    end
-
-    alt No hay disponibilidad
-        SistemaDeMensajería ->>+ SistemaDeMensajería: BuscarDisponibilidadOtrosHoteles(fecha_inicio, fecha_termino,estado)
-        SistemaDeMensajería -->>+ CreadorReserva: NotificarDisponibilidad()
-        CreadorReserva ->>- SistemaDeMensajería: ModificarDatosReserva(fecha_inicio, fecha_termino, estado)
-    else Hay disponibilidad (en hotel de su conveniencia)
-        CreadorReserva ->>+ SistemaDeMensajería: ModificarDatosReserva(fecha_inicio, fecha_termino, estado)
-    end
-
-    CreadorReserva ->>+ SistemaDeMensajería: RegistrarReserva(fecha_inicio, fecha_termino, estado)
-
-    Note over CreadorReserva,SistemaDeMensajería: Incluir CU10
-```
-
-### versión 2
-
-![ModificarReserva](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXLDrWFcbiAgICBOb3RlIG92ZXIgQ3JlYWRvclJlc2VydmEsU2lzdGVtYURlTWVuc2FqZXLDrWE6IElkZW50aWZpY2FyIENsaWVudGUgKENVOHxDVTkpXG4gICAgTm90ZSBvdmVyIENyZWFkb3JSZXNlcnZhLFNpc3RlbWFEZU1lbnNhamVyw61hOiBJZGVudGlmaWNhciBSZXNlcnZhIGRlIENsaWVudGUgKENVNylcblxuICAgICUlIDNcbiAgICBsb29wIG1vZGlmaWNhciByZXNlcnZhXG4gICAgICAgIGxvb3AgZW5jb250cmFyIGhvdGVsIGRpc3BvbmlibGVcbiAgICAgICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PiBTR0g6IGRpc3BvbmliaWxpZGFkID0gY29uZmlybWFyRGlzcG9uaWJpbGlkYWQoaG90ZWwsIHRpcG9faGFiaXRhY2lvbiwgZmluaWNpbywgZmZpbikgOiBCb29sXG4gICAgICAgICAgICBhbHQgbm8gaGF5IGRpc3BvbmliaWxpZGFkXG4gICAgICAgICAgICAgICAgQ3JlYWRvclJlc2VydmEgLT4-IFNHSDogYWx0ZXJuYXRpdmFzID0gYnVzY2FyQWx0ZXJuYXRpdmFzKHBhaXMsIHRpcG9faGFiaXRhY2lvbiwgZmluaWNpbywgZmZpbikgOiBMaXN0PEhvdGVsPlxuICAgICAgICAgICAgZW5kXG4gICAgICAgIGVuZFxuXG4gICAgICAgIGFsdCBjb25maXJtYSBtb2RpZmljYWNpb25cbiAgICAgICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PiBTR0g6IG1vZGlmaWNhclJlc2VydmEoaWQsIGhvdGVsLCB0aXBvX2hhYml0YWNpb24sIGZpbmljaW8sIGZmaW4pXG4gICAgICAgICAgICBOb3RlIG92ZXIgU0dILFNpc3RlbWFEZU1lbnNhamVyw61hOiBDb25maXJtYXIgUmVzZXJ2YSAoQ1UxMClcbiAgICAgICAgZWxzZSBubyBtb2RpZmljYXIgcmVzZXJ2YVxuICAgICAgICAgICAgTm90ZSBvdmVyIENyZWFkb3JSZXNlcnZhLFNpc3RlbWFEZU1lbnNhamVyw61hOiBTVE9QXG4gICAgICAgIGVuZFxuICAgIGVuZCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
+![ModificarReserva](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXLDrWFcbiAgICBOb3RlIG92ZXIgQ3JlYWRvclJlc2VydmEsU0dIOiBJZGVudGlmaWNhciBDbGllbnRlIChDVTh8Q1U5KVxuICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTR0g6IElkZW50aWZpY2FyIFJlc2VydmEgZGUgQ2xpZW50ZSAoQ1U3KVxuXG4gICAgJSUgM1xuICAgIGxvb3AgbW9kaWZpY2FyIHJlc2VydmFcbiAgICAgICAgbG9vcCBlbmNvbnRyYXIgaG90ZWwgZGlzcG9uaWJsZVxuICAgICAgICAgICAgQ3JlYWRvclJlc2VydmEgLT4-IFNHSDogZGlzcG9uaWJpbGlkYWQgPSBjb25maXJtYXJEaXNwb25pYmlsaWRhZChpZF9ob3RlbDogaW50LCBpZF90aXBvX2hhYml0YWNpb246IGludCwgZmluaWNpbzogZGF0ZSwgZmZpbjogZGF0ZSkgOiBCb29sXG4gICAgICAgICAgICBvcHQgbm8gaGF5IGRpc3BvbmliaWxpZGFkXG4gICAgICAgICAgICAgICAgQ3JlYWRvclJlc2VydmEgLT4-IFNHSDogYWx0ZXJuYXRpdmFzID0gYnVzY2FyQWx0ZXJuYXRpdmFzKHBhaXM6IHN0ciwgaWRfdGlwb19oYWJpdGFjaW9uOiBpbnQsIGZpbmljaW86IGRhdGUsIGZmaW46IGRhdGUpIDogTGlzdDxIb3RlbD5cbiAgICAgICAgICAgIGVuZFxuICAgICAgICBlbmRcblxuICAgICAgICBvcHQgY29uZmlybWEgbW9kaWZpY2FjaW9uXG4gICAgICAgICAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiBtb2RpZmljYXJSZXNlcnZhKGlkX2hvdGVsOiBpbnQsIGlkX3RpcG9faGFiaXRhY2lvbjogaW50LCBmaW5pY2lvOiBkYXRlLCBmZmluOiBkYXRlKVxuICAgICAgICAgICAgTm90ZSBvdmVyIFNHSCxTaXN0ZW1hRGVNZW5zYWplcsOtYTogQ29uZmlybWFyIFJlc2VydmEgKENVMTApXG4gICAgICAgIGVuZFxuICAgIGVuZCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
 
 ```
 sequenceDiagram 
     participant CreadorReserva
     participant SGH
     participant SistemaDeMensajería
-    Note over CreadorReserva,SistemaDeMensajería: Identificar Cliente (CU8|CU9)
-    Note over CreadorReserva,SistemaDeMensajería: Identificar Reserva de Cliente (CU7)
+    Note over CreadorReserva,SGH: Identificar Cliente (CU8|CU9)
+    Note over CreadorReserva,SGH: Identificar Reserva de Cliente (CU7)
 
     %% 3
     loop modificar reserva
         loop encontrar hotel disponible
-            CreadorReserva ->> SGH: disponibilidad = confirmarDisponibilidad(hotel, tipo_habitacion, finicio, ffin) : Bool
-            alt no hay disponibilidad
-                CreadorReserva ->> SGH: alternativas = buscarAlternativas(pais, tipo_habitacion, finicio, ffin) : List<Hotel>
+            CreadorReserva ->> SGH: disponibilidad = confirmarDisponibilidad(id_hotel: int, id_tipo_habitacion: int, finicio: date, ffin: date) : Bool
+            opt no hay disponibilidad
+                CreadorReserva ->> SGH: alternativas = buscarAlternativas(pais: str, id_tipo_habitacion: int, finicio: date, ffin: date) : List<Hotel>
             end
         end
 
-        alt confirma modificacion
-            CreadorReserva ->> SGH: modificarReserva(id, hotel, tipo_habitacion, finicio, ffin)
+        opt confirma modificacion
+            CreadorReserva ->> SGH: modificarReserva(id_hotel: int, id_tipo_habitacion: int, finicio: date, ffin: date)
             Note over SGH,SistemaDeMensajería: Confirmar Reserva (CU10)
-        else no modificar reserva
-            Note over CreadorReserva,SistemaDeMensajería: STOP
         end
     end
 ```
-### version 3
-
-![Tarea 1.2 - Diagrama de secuencia B)]
-[![][![][![](https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5cbnBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG5wYXJ0aWNpcGFudCBTR0hcbnBhcnRpY2lwYW50IFNpc3RlbWFkZU1lbnNhamVyw61hXG5cbk5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTaXN0ZW1hZGVNZW5zYWplcsOtYTogSW5jbHVpciBDVTggeSBDVTlcbk5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTaXN0ZW1hZGVNZW5zYWplcsOtYTogSW5jbHVpciBDVTdcbiBcbmFsdCBNb2RpZmljYXIgcmVzZXJ2YVxuQ3JlYWRvclJlc2VydmEgLT4-KyBTR0g6IE1vZGlmaWNhckRhdG9zUmVzZXJ2YShmaSwgZnQsIGVzdGFkbylcblNHSCAtPj4rIFNHSDogVmVyaWZpY2FyRGlzcG9uaWJpbGlkYWQoZmksIGZ0LGVzdGFkbylcbiAgICBhbHQgTm8gaGF5IGRpc3BvbmliaWxpZGFkXG4gICAgU0dIIC0-PisgU0dIOiBWZXJpZmljYXJEaXNwb25pYmlsaWRhZCBlbiBIb3RlbCAoZmksIGZ0LHBhw61zKVxuICAgIFxuICAgICAgICBhbHQgTm8gaGF5IGRpc3BvbmliaWxpZGFkIGRlIGhvdGVsZXNcbiAgICAgICAgU0dIIC0-PisgQ3JlYWRvclJlc2VydmE6IE5vIGhheSBkaXNwb25pYmlsaWRhZCBkZSBob3RlbFxuICAgICAgICBOb3RlIG92ZXIgQ3JlYWRvclJlc2VydmEsU2lzdGVtYWRlTWVuc2FqZXLDrWE6IHJldG9ybmEgYSBtb2RpZmljYWNpw7NuIGRlIHJlc2VydmFcbiAgICAgICAgZW5kXG4gICAgICAgIGFsdCBEaXNwb25pYmlsaWRhZCBkZSBob3RlbFxuICAgICAgICBTR0ggLT4-KyBDcmVhZG9yUmVzZXJ2YTogaGF5IGRpc3BvbmliaWxpZGFkIGRlIGhvdGVsXG4gICAgICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTaXN0ZW1hZGVNZW5zYWplcsOtYTogcmV0b3JuYSBhIG1vZGlmaWNhY2nDs24gZGUgcmVzZXJ2YVxuICAgICAgICBlbmRcbiAgICBlbmRcblxuQ3JlYWRvclJlc2VydmEgLT4-KyBTR0g6IENvbmZpcm1hIHJlc2VydmEgbyBtb2RpZmljYSAoKGZpLCBmdCxob3RlbCx0aXBvaGFiaXRhY2lvbilcblxuZWxzZSBubyBtb2RpZmljYSByZXNlcnZhXG5TR0ggLT4-KyBTaXN0ZW1hZGVNZW5zYWplcsOtYTogZW52w61hIGNvbmZpcm1hY2nDs24geSBkYXRvc1xuXG5TR0ggLS0-PisgQ3JlYWRvclJlc2VydmE6IFZvbHZlck1lbnVJbmljaWFsKClcblxuZW5kIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/edit##eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5cbnBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG5wYXJ0aWNpcGFudCBTR0hcbnBhcnRpY2lwYW50IFNpc3RlbWFkZU1lbnNhamVyw61hXG5cbk5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTaXN0ZW1hZGVNZW5zYWplcsOtYTogSW5jbHVpciBDVTggeSBDVTlcbk5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTaXN0ZW1hZGVNZW5zYWplcsOtYTogSW5jbHVpciBDVTdcbiBcbmFsdCBNb2RpZmljYXIgcmVzZXJ2YVxuQ3JlYWRvclJlc2VydmEgLT4-KyBTR0g6IE1vZGlmaWNhckRhdG9zUmVzZXJ2YShmaSwgZnQsIGVzdGFkbylcblNHSCAtPj4rIFNHSDogVmVyaWZpY2FyRGlzcG9uaWJpbGlkYWQoZmksIGZ0LGVzdGFkbylcbiAgICBhbHQgTm8gaGF5IGRpc3BvbmliaWxpZGFkXG4gICAgU0dIIC0-PisgU0dIOiBWZXJpZmljYXJEaXNwb25pYmlsaWRhZCBlbiBIb3RlbCAoZmksIGZ0LHBhw61zKVxuICAgIFxuICAgICAgICBhbHQgTm8gaGF5IGRpc3BvbmliaWxpZGFkIGRlIGhvdGVsZXNcbiAgICAgICAgU0dIIC0-PisgQ3JlYWRvclJlc2VydmE6IE5vIGhheSBkaXNwb25pYmlsaWRhZCBkZSBob3RlbFxuICAgICAgICBOb3RlIG92ZXIgQ3JlYWRvclJlc2VydmEsU2lzdGVtYWRlTWVuc2FqZXLDrWE6IHJldG9ybmEgYSBtb2RpZmljYWNpw7NuIGRlIHJlc2VydmFcbiAgICAgICAgZW5kXG4gICAgICAgIGFsdCBEaXNwb25pYmlsaWRhZCBkZSBob3RlbFxuICAgICAgICBTR0ggLT4-KyBDcmVhZG9yUmVzZXJ2YTogaGF5IGRpc3BvbmliaWxpZGFkIGRlIGhvdGVsXG4gICAgICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTaXN0ZW1hZGVNZW5zYWplcsOtYTogcmV0b3JuYSBhIG1vZGlmaWNhY2nDs24gZGUgcmVzZXJ2YVxuICAgICAgICBlbmRcbiAgICBlbmRcblxuQ3JlYWRvclJlc2VydmEgLT4-KyBTR0g6IENvbmZpcm1hIHJlc2VydmEgbyBtb2RpZmljYSAoKGZpLCBmdCxob3RlbCx0aXBvaGFiaXRhY2lvbilcblNHSCAtPj4rIFNpc3RlbWFEZUZhY3R1cmFjacOzbjogYWN0dWFsaXphIGRhdG9zIGRlIHRhcmlmYVxuZWxzZSBubyBtb2RpZmljYSByZXNlcnZhXG5TR0ggLT4-KyBTaXN0ZW1hZGVNZW5zYWplcsOtYTogZW52w61hIGNvbmZpcm1hY2nDs24geSBkYXRvc1xuXG5TR0ggLS0-PisgQ3JlYWRvclJlc2VydmE6IFZvbHZlck1lbnVJbmljaWFsKClcblxuZW5kIiwibWVybWFpZCI6IntcbiAgXCJ0aGVtZVwiOiBcImRlZmF1bHRcIlxufSIsInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
-sequenceDiagram
-
-sequenceDiagram
-
-participant CreadorReserva
-participant SGH
-participant SistemadeMensajería
-
-Note over CreadorReserva,SistemadeMensajería: Incluir CU8 y CU9
-Note over CreadorReserva,SistemadeMensajería: Incluir CU7
- 
-alt Modificar reserva
-CreadorReserva ->>+ SGH: ModificarDatosReserva(fi, ft, estado)
-SGH ->>+ SGH: VerificarDisponibilidad(fi, ft,estado)
-    alt No hay disponibilidad
-    SGH ->>+ SGH: VerificarDisponibilidad en Hotel (fi, ft,país)
-    
-        alt No hay disponibilidad de hoteles
-        SGH ->>+ CreadorReserva: No hay disponibilidad de hotel
-        Note over CreadorReserva,SistemadeMensajería: retorna a modificación de reserva
-        end
-        alt Disponibilidad de hotel
-        SGH ->>+ CreadorReserva: hay disponibilidad de hotel
-        Note over CreadorReserva,SistemadeMensajería: retorna a modificación de reserva
-        end
-    end
-
-CreadorReserva ->>+ SGH: Confirma reserva o modifica ((fi, ft,hotel,tipohabitacion)
-
-else no modifica reserva
-SGH ->>+ SistemadeMensajería: envía confirmación y datos
-
-SGH -->>+ CreadorReserva: VolverMenuInicial()
-
-end
-
 
 ## (C) Tomar Reserva (para revisar)
 
