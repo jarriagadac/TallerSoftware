@@ -170,6 +170,31 @@ Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagra
 
 Especificar el caso de uso Cancelar Reserva (CU3), tal como están especificados los otros casos de uso en el documento Especificación de Requisitos.
 
+| Nombre | Cancelar Reserva (CU3) |
+|-|-|
+| Actores | Creador de Reserva, Sistema de Mensajería |
+| Actividades | Cancelar Reserva, Confirmar Cancelación de Reserva |
+| Sinopsis | Este caso de uso comienza cuando el Creador de Reserva solicita cancelar una reserva. El sistema chequea que la reserva esté en plazo para ser cancelada. Si hay costos asociados a la reserva estos se facturan. |
+| Curso Típico de Eventos | |
+|                         | (1) curso típico |
+| Extensiones | |
+| | (2) extensiones |
+
+> (1) curso títico
+>
+> 1. Incluir Identificar Cliente (CU8|CU9)
+> 2. Incluir Identificar Reserva de Cliente (CU7)
+> 3. Creador de Reserva cancela reserva.
+> 4. Sistema confirma la cancelación de la reserva.
+> 5. Incluir Confirmar Reserva (CU10)
+
+> (2) extensiones
+>
+> 4a. Creador de Reserva decide no cancelar la reserva.
+>       1. Stop
+
+### Parte 2
+
 Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagramas de secuencia de UML, para el caso de uso Cancelar Reserva (CU3).
 
 ![Tarea 1.2 - Diagrama de secuencia D)](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENsaWVudGVcbiAgICBwYXJ0aWNpcGFudCBSZWNlcGNpb25pc3RhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlRmFjdHVyYWNpw7NuXG4gIFxuICAgIENsaWVudGUgLT4-KyBSZWNlcGNpb25pc3RhOiBFbnRyZWdhckRhdG9zUmVzZXJ2YShjb2RpZ28sIG5vbWJyZV9jbGllbnRlLCBmZWNoYV9jaGVja19pbiwgZmVjaGFfY2hlY2tfb3V0KVxuICAgIFJlY2VwY2lvbmlzdGEgLT4-KyBTR0g6IENvbnN1bHRhclJlc2VydmFQb3JJRChjb2RpZ28pXG5cbiAgICBhbHQgTm8gc2UgdGllbmUgcmVzZXJ2YSByZWdpc3RyYWRhXG4gICAgICAgIFNHSCAtLT4rIFJlY2VwY2lvbmlzdGE6IERldm9sdmVyUmVzZXJ2YU5vRW5jb250cmFkYShtZW5zYWplKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0tPitDbGllbnRlOiBEZXZvbHZlclJlc2VydmFOb0VuY29udHJhZGEobWVuc2FqZSlcbiAgICBlbHNlIFNlIHRpZW5lIHJlc2VydmEgcmVnaXN0cmFkYVxuICAgICAgICBTR0ggLS0-KyBSZWNlcGNpb25pc3RhOiBEZXZvbHZlckRhdG9zUmVzZXJ2YSgpXG4gICAgZW5kXG5cbiAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBBbnVsYXJSZXNlcnZhKGNvZGlnbylcblxuICAgIGFsdCBObyBzZSBoYSBsbGVnYWRvIGEgZmVjaGEgZGUgc2VyIHRvbWFkYVxuICAgICAgICBTR0ggLS0-KyBSZWNlcGNpb25pc3RhOiBEZXZvbHZlckVzdGFkb1Jlc2VydmEobWVuc2FqZSlcbiAgICBlbHNlIFNlIGxsZWfDsyBhIGxhIGZlY2hhIGRlIHNlciB0b21hZGFcbiAgICAgICAgU0dIIC0-PisgU2lzdGVtYURlRmFjdHVyYWNpw7NuOiBTb2xpY2l0YXJSZWVtYm9sc28oY29kaWdvLCBkaWFzX3Jlc3RhbnRlcylcbiAgICAgICAgU2lzdGVtYURlRmFjdHVyYWNpb24gLS0-KyBTR0g6IEVudHJlZ2FSZWVtYm9sc28oY29kaWdvLCBjb2RpZ29fb3BlcmFjaW9uLCBjdWVudGEsIG1vbnRvKVxuICAgICAgICBTR0ggLT4-KyBTR0g6IFByb2Nlc2FyQW51bGFjaW9uKGNvZGlnbywgY3VlbnRhLCBtb250bylcbiAgICAgICAgU0dIIC0tPisgUmVjZXBjaW9uaXN0YTogRGV2b2x2ZXJFc3RhZG9SZXNlcnZhKG1lbnNhamUpXG4gICAgZW5kXG4gXG5cblxuXG5cblxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
@@ -183,16 +208,13 @@ sequenceDiagram
   
     Cliente ->>+ Recepcionista: EntregarDatosReserva(codigo, nombre_cliente, fecha_check_in, fecha_check_out)
     Recepcionista ->>+ SGH: ConsultarReservaPorID(codigo)
-
     alt No se tiene reserva registrada
         SGH -->+ Recepcionista: DevolverReservaNoEncontrada(mensaje)
         Recepcionista -->+Cliente: DevolverReservaNoEncontrada(mensaje)
     else Se tiene reserva registrada
         SGH -->+ Recepcionista: DevolverDatosReserva()
     end
-
     Recepcionista ->>+ SGH: AnularReserva(codigo)
-
     alt No se ha llegado a fecha de ser tomada
         SGH -->+ Recepcionista: DevolverEstadoReserva(mensaje)
     else Se llegó a la fecha de ser tomada
