@@ -175,11 +175,28 @@ stateDiagram
  s5 --> [*]
  ```
  
- ## Anexo
+## Anexo
+
+### Identificar Reserva de Cliente (CU7)
+
+![IdentificarClienteRecepcion](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG5cbiAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiByZXNlcnZhcyA9IG9idGVuZXJSZXNlcnZhc0NsaWVudGUoaWRfY2xpZW50ZSwgW05PX1RPTUFEQV0pOiBMaXN0PFJlc2VydmE-XG4gICAgXG4gICAgb3B0IGV4aXN0ZW4gcmVzZXJ2YXNcbiAgICAgICAgQ3JlYWRvclJlc2VydmEgLT4-IFNHSDogcmVzZXJ2YSA9IG9idGVuZXJSZXNlcnZhKGlkX3Jlc2VydmEpOiBSZXNlcnZhXG4gICAgZW5kXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
+
+```
+sequenceDiagram 
+    participant CreadorReserva
+    participant SGH
+
+    CreadorReserva ->> SGH: reservas = obtenerReservasCliente(id_cliente, [NO_TOMADA]): List<Reserva>
+    
+    opt existen reservas
+        CreadorReserva ->> SGH: reserva = obtenerReserva(id_reserva): Reserva
+    end
+```
+
 
 ### Identificar Cliente en Recepción (CU8)
 
-![Identificar Cliente en Recepción (CU8)](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcblxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlczo9IGJ1c2NhckNsaWVudGUobm9tYnJlQ2xpZW50ZTogc3RyaW5nKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlOj0gc2VsZWNjaW9uYXJDbGllbnRlKGlkOiBzdHJpbmcpXG4gICAgXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
+![IdentificarClienteRecepcion](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcblxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlczo9IGJ1c2NhckNsaWVudGUobm9tYnJlQ2xpZW50ZTogc3RyaW5nKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlOj0gc2VsZWNjaW9uYXJDbGllbnRlKGlkOiBzdHJpbmcpXG4gICAgXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
 
 ```
 sequenceDiagram 
