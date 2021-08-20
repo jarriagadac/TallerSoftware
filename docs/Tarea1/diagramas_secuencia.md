@@ -102,7 +102,7 @@ Especificar el caso de uso Cancelar Reserva (CU3), tal como están especificados
 |-|-|
 | Actores | Creador de Reserva, Sistema de Mensajería |
 | Actividades | Cancelar Reserva, Confirmar Cancelación de Reserva |
-| Sinopsis | Este caso de uso comienza cuando el Creador de Reserva solicita cancelar una reserva. El sistema chequea que la reserva esté en plazo para ser cancelada. Si hay costos asociados a la reserva estos se facturan. |
+| Sinopsis | Este caso de uso comienza cuando el Creador de Reserva solicita cancelar una reserva. |
 | Curso Típico de Eventos | |
 |                         | (1) curso típico |
 | Extensiones | |
