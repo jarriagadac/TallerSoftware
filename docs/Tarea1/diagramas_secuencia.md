@@ -108,6 +108,22 @@ Especificar el caso de uso Cancelar Reserva (CU3), tal como están especificados
 | Extensiones | |
 | | (2) extensiones |
 
+## Anexo
+
+![Identificar Cliente en Recepción (CU8)]
+(https://mermaid-js.github.io/mermaid-live-editor/view/#eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcblxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlczo9IGJ1c2NhckNsaWVudGUobm9tYnJlQ2xpZW50ZTogc3RyaW5nKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlOj0gc2VsZWNjaW9uYXJDbGllbnRlKGlkOiBzdHJpbmcpXG4gICAgXG4iLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGVmYXVsdFwiXG59IiwidXBkYXRlRWRpdG9yIjp0cnVlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6dHJ1ZX0)
+
+
+```
+sequenceDiagram 
+    
+    participant Recepcionista
+    participant SGH
+        Recepcionista ->>+ SGH: clientes:= buscarCliente(nombreCliente: string)
+        Recepcionista ->>+ SGH: cliente:= seleccionarCliente(id: string)
+```
+
+
 > (1) curso títico
 >
 > 1. Incluir Identificar Cliente (CU8|CU9)
