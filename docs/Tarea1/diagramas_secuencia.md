@@ -63,60 +63,34 @@ sequenceDiagram
     end
 ```
 
-## (C) Tomar Reserva (para revisar)
+## (C) Tomar Reserva
 
-### versión 1
+Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagramas de secuencia de UML, para el caso de uso Tomar Reserva (CU4).
 
-![Tarea 1.2 - Diagrama de secuencia C)](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IEh1w6lzcGVkXG4gICAgcGFydGljaXBhbnQgQ2xpZW50ZVxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcbiAgICBwYXJ0aWNpcGFudCBTaXN0ZW1hRGVGYWN0dXJhY2nDs25cbiAgICBcbiBcbiAgICBhbHQgSHXDqXNwZWQgdGllbmUgcmVzZXJ2YVxuIFxuICAgICAgICBhbHQgTmluZ3VuYSByZXNlcnZhIGNvaW5jaWRlIGNvbiBsYSBpbmZvcm1hY2nDs24gZGVsIEh1w6lzcGVkXG4gICAgICAgICAgICBOb3RlIG92ZXIgSHXDqXNwZWQsIFNpc3RlbWFEZUZhY3R1cmFjacOzbjogSW5jbHVpciBDVTFcbiAgICAgICAgICAgIEh1w6lzcGVkIC0-PisgUmVjZXBjaW9uaXN0YTogRW50cmVnYXJEYXRvc1BlcnNvbmFsZXMoTm9tYnJlLCBtYWlsLCB0ZWzDqWZvbm8pXG4gICAgICAgIEVsc2UgSGF5IHVuYSByZXNlcnZhIGNvcmNvbmRhbnRlIGNvbiBsYSBpbmZvcm1hY2nDs24gZGVsIEh1w6lzcGVkXG4gICAgICAgICAgICBIdcOpc3BlZCAtPj4rIFJlY2VwY2lvbmlzdGE6IEVudHJlZ2FySW5mb3JtYWNpb25SZXNlcnZhKGNvZGlnbylcbiAgICAgICAgICAgIFJlY2VwY2lvbmlzdGEgLT4-LSBTR0g6IExvY2FsaXphclJlc2VydmEoY29kaWdvKVxuICAgICAgICBFbmRcbiBcbiAgICBlbHNlIEh1w6lzcGVkIG5vIHRpZW5lIHJlc2VydmEgICAgXG4gXG4gICAgICAgIE5vdGUgb3ZlciBIdcOpc3BlZCwgU2lzdGVtYURlRmFjdHVyYWNpw7NuOiBJbmNsdWlyIENVMVxuIFxuICAgICAgICBhbHQgSGF5IHJlc2VydmFzIGHDum4gbm8gdG9tYWRhc1xuICAgICAgICAgICAgU0dIIC0tPisgUmVjZXBjaW9uaXN0YTogTW9zdHJhckhhYml0YWNpb25lc0Rpc3BvbmlibGVzKClcbiAgICAgICAgRWxzZSBObyBoYXkgcmVzZXJ2YXMgYcO6biBubyB0b21hZGFzXG4gICAgICAgICAgICBOb3RlIG92ZXIgSHXDqXNwZWQsIFNpc3RlbWFEZUZhY3R1cmFjacOzbjogSW5jbHVpciBDVTFcbiAgICAgICAgICAgIEh1w6lzcGVkIC0-PisgUmVjZXBjaW9uaXN0YTogRW50cmVnYXJEYXRvc1BlcnNvbmFsZXMoTm9tYnJlLCBtYWlsLCB0ZWzDqWZvbm8pXG4gICAgICAgIEVuZFxuIFxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBTZWxlY2Npb25hckhhYml0YWNpw7NuKClcbiBcbiAgICAgICAgYWx0IEh1w6lzcGVkIG5vIGRlc2VhIG1vZGlmaWNhciBkYXRvcyBkZSBsYSByZXNlcnZhXG4gICAgICAgICAgICBIdcOpc3BlZCAtPj4rIFJlY2VwY2lvbmlzdGE6IEVudHJlZ2FyRGF0b3NQZXJzb25hbGVzKE5vbWJyZSwgbWFpbCwgdGVsw6lmb25vKVxuICAgICAgICBFbHNlIEh1w6lzcGVkIHJlcXVpZXJlIG1vZGlmaWNhciBkYXRvcyBkZSBsYSByZXNlcnZhXG4gICAgICAgICAgICBSZWNlcGNpb25pc3RhIC0tPisgQ2xpZW50ZTogUmV2aXNhclBlcm1pc29DYW1iaW9EYXRvc1Jlc2VydmFIdcOpc3BlZChOb21icmVfSHXDqXNwZWQpXG4gICAgICAgICAgICBhbHQgSHXDqXNwZWQgbm8gdGllbmUgcGVybWlzbyBwYXJhIGNhbWJpYXIgZGF0b3MgZGUgbGEgcmVzZXJ2YVxuICAgICAgICAgICAgICAgIFJlY2VwY2lvbmlzdGEgLS0-KyBIdcOpc3BlZDogSW5mb3JtYXJQcm9oaWJpY2nDs24oKVxuICAgICAgICAgICAgICAgIEh1w6lzcGVkIC0-Pi0gUmVjZXBjaW9uaXN0YTogRW50cmVnYXJEYXRvc1BlcnNvbmFsZXMoTm9tYnJlLCBtYWlsLCB0ZWzDqWZvbm8pXG4gICAgICAgICAgICBFbHNlIEh1w6lzcGVkIGNvbiBwZXJtaXNvc1xuICAgICAgICAgICAgICAgIE5vdGUgb3ZlciBIdcOpc3BlZCwgU2lzdGVtYURlRmFjdHVyYWNpw7NuOiBJbmNsdWlyIENVMlxuICAgICAgICAgICAgICAgIEh1w6lzcGVkIC0-PisgUmVjZXBjaW9uaXN0YTogRW50cmVnYXJEYXRvc1BlcnNvbmFsZXMoTm9tYnJlLCBtYWlsLCB0ZWzDqWZvbm8pXG4gICAgICAgICAgICBFbmRcbiAgICAgICAgRW5kXG4gXG4gICAgICAgIFJlY2VwY2lvbmlzdGEgLT4-LSBTR0g6IEVudHJlZ2FyRGF0b3NQZXJzb25hbGVzKE5vbWJyZSwgbWFpbCwgdGVsw6lmb25vKVxuICAgICAgICBTR0ggLT4-IFNHSDogQXNpZ25hckhhYml0YWNpw7NuKE5vbWJyZV9IdWVzcGVkKVxuICAgICAgICBTR0ggLT4-LSBTaXN0ZW1hRGVGYWN0dXJhY2nDs246IEZhY3R1cmFyRXN0YWTDrWEoTm9tYnJlX0h1ZXNwZWQpXG4gICAgZW5kXG5cblxuXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
+![TomarReserva](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcbiAgICBwYXJ0aWNpcGFudCBTaXN0ZW1hTWVuc2FqZXJpYVxuICAgIHBhcnRpY2lwYW50IFNpc3RlbWFEZUZhY3R1cmFjacOzblxuICAgIFxuICAgIFJlY2VwY2lvbmlzdGEgLT4-IFNHSDogcmVzZXJ2YXMgPSBvYnRlbmVyUmVzZXJ2YXMoTk9fVE9NQURBKVxuICAgIFxuICAgIG9wdCBubyBoYXkgcmVzZXJ2YXMgbyBubyBoYXkgdW5hIHJlc2VydmEgcGFyYSBlbCBjbGllbnRlXG4gICAgICAgIE5vdGUgb3ZlciBSZWNlcGNpb25pc3RhLCBTaXN0ZW1hTWVuc2FqZXJpYTogSW5jbHVpciBIYWNlciBSZXNlcnZhIChDVTEpXG4gICAgZW5kXG5cbiAgICBSZWNlcGNpb25pc3RhIC0-PiBTR0g6IHJlc2VydmEgPSBvYnRlbmVyUmVzZXJ2YShpZF9yZXNlcnZhOiBpbnQpOiBSZXNlcnZhXG5cbiAgICBvcHQgbW9kaWZpY2FyIGRhdG9zIGRlIGxhIHJlc2VydmEgeSByZXNlcnZhIG1vZGlmaWNhYmxlXG4gICAgICAgIE5vdGUgb3ZlciBSZWNlcGNpb25pc3RhLCBTaXN0ZW1hTWVuc2FqZXJpYTogSW5jbHVpciBNb2RpZmljYXIgUmVzZXJ2YSAoQ1UyKVxuICAgIGVuZFxuXG4gICAgb3B0IGFzaWduYXIgaGFiaXRhY2nDs24gYWwgaHVlc3BlZFxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PiBTR0g6IGhhYml0YWNpb24gPSBhc2lnbmFySGFiaXRhY2lvbihpZF9yZXNlcnZhOiBpbnQpOiBIYWJpdGFjaW9uXG4gICAgICAgIFNHSCAtPj4gU2lzdGVtYURlRmFjdHVyYWNpw7NuOiBub3RpZmljYXJJbmljaW9Fc3RhZGlhKGlkX3Jlc2VydmE6IGludClcbiAgICBlbmQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
 
 ```
 sequenceDiagram 
-    participant Huésped
-    participant Cliente
     participant Recepcionista
     participant SGH
+    participant SistemaMensajeria
     participant SistemaDeFacturación
     
- 
-    alt Huésped tiene reserva
- 
-        alt Ninguna reserva coincide con la información del Huésped
-            Note over Huésped, SistemaDeFacturación: Incluir CU1
-            Huésped ->>+ Recepcionista: EntregarDatosPersonales(Nombre, mail, teléfono)
-        Else Hay una reserva corcondante con la información del Huésped
-            Huésped ->>+ Recepcionista: EntregarInformacionReserva(codigo)
-            Recepcionista ->>- SGH: LocalizarReserva(codigo)
-        End
- 
-    else Huésped no tiene reserva    
- 
-        Note over Huésped, SistemaDeFacturación: Incluir CU1
- 
-        alt Hay reservas aún no tomadas
-            SGH -->+ Recepcionista: MostrarHabitacionesDisponibles()
-        Else No hay reservas aún no tomadas
-            Note over Huésped, SistemaDeFacturación: Incluir CU1
-            Huésped ->>+ Recepcionista: EntregarDatosPersonales(Nombre, mail, teléfono)
-        End
- 
-        Recepcionista ->>+ SGH: SeleccionarHabitación()
- 
-        alt Huésped no desea modificar datos de la reserva
-            Huésped ->>+ Recepcionista: EntregarDatosPersonales(Nombre, mail, teléfono)
-        Else Huésped requiere modificar datos de la reserva
-            Recepcionista -->+ Cliente: RevisarPermisoCambioDatosReservaHuésped(Nombre_Huésped)
-            alt Huésped no tiene permiso para cambiar datos de la reserva
-                Recepcionista -->+ Huésped: InformarProhibición()
-                Huésped ->>- Recepcionista: EntregarDatosPersonales(Nombre, mail, teléfono)
-            Else Huésped con permisos
-                Note over Huésped, SistemaDeFacturación: Incluir CU2
-                Huésped ->>+ Recepcionista: EntregarDatosPersonales(Nombre, mail, teléfono)
-            End
-        End
- 
-        Recepcionista ->>- SGH: EntregarDatosPersonales(Nombre, mail, teléfono)
-        SGH ->> SGH: AsignarHabitación(Nombre_Huesped)
-        SGH ->>- SistemaDeFacturación: FacturarEstadía(Nombre_Huesped)
+    Recepcionista ->> SGH: reservas = obtenerReservas(NO_TOMADA)
+    
+    opt no hay reservas o no hay una reserva para el cliente
+        Note over Recepcionista, SistemaMensajeria: Incluir Hacer Reserva (CU1)
+    end
+
+    Recepcionista ->> SGH: reserva = obtenerReserva(id_reserva: int): Reserva
+
+    opt modificar datos de la reserva y reserva modificable
+        Note over Recepcionista, SistemaMensajeria: Incluir Modificar Reserva (CU2)
+    end
+
+    opt asignar habitación al huesped
+        Recepcionista ->> SGH: habitacion = asignarHabitacion(id_reserva: int): Habitacion
+        SGH ->> SistemaDeFacturación: notificarInicioEstadia(id_reserva: int)
     end
 ```
 
