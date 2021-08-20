@@ -96,6 +96,8 @@ sequenceDiagram
 
 ## (D) Cancelar Reserva (para revisar) 
 
+### Parte 1
+
 Especificar el caso de uso Cancelar Reserva (CU3), tal como están especificados los otros casos de uso en el documento Especificación de Requisitos.
 
 | Nombre | Cancelar Reserva (CU3) |
@@ -149,53 +151,38 @@ Construir, para el caso de uso Hacer Reserva (CU1), una máquina de estados que 
 
 ```
 stateDiagram
-    state "Identificación Cliente" as s1
-    state "En creación" as s2
-    state "Creada" as s3
-    state "Registrada" as s4
-    state "Confirmada" as s5
-    state "Modificada" as s6
-    state "Sin disponibilidad" as s7
-    state "Alta Cliente" as s8
-
- [*] --> s1
-
- s1 --> s2 : Existe Cliente
-
- s1 --> s7 : No existe disponibilidad para reservas
-
- s7 --> s2 : Se revisa disponibilidad en otros hoteles
-
- s7 --> [*] : No hay disponibilidad (ni siquiera en otros hoteles)
-
- s7 --> s6 : Cliente indica datos y hotel de conveniencia
-
-s6 --> s2 : Se cambian datos de reserva
-
- s1 --> s8 : No existe cliente
-
- s8 --> s2 : Existe cliente
-
- s2 --> s3 : Se indican datos para reserva
-
- s3 --> s4 : Se confirma disponibilidad de habitación
-
- s4 --> s5 : se confirma reserva
-
- s5 --> [*]
+ state "Identificación Cliente" as s1
+ state "En creación" as s2
+ state "Creada" as s3
+ state "Registrada" as s4
+ state "Confirmada" as s5
+ state "Modificada" as s6
+ state "Sin disponibilidad" as s7
+ state "Alta Cliente" as s8
  
+ [*] --> s1
+ s1 --> s2 : Existe Cliente
+ s1 --> s7 : No existe disponibilidad para reservas
+ s7 --> s2 : Se revisa disponibilidad en otros hoteles
+ s7 --> [*] : No hay disponibilidad (ni siquiera en otros hoteles)
+ s7 --> s6 : Cliente indica datos y hotel de conveniencia
+ s6 --> s2 : Se cambian datos de reserva
+ s1 --> s8 : No existe cliente
+ s8 --> s2 : Existe cliente
+ s2 --> s3 : Se indican datos para reserva
+ s3 --> s4 : Se confirma disponibilidad de habitación
+ s4 --> s5 : se confirma reserva
+ s5 --> [*]
  ```
  
  ## Anexo
 
-Identificar Cliente en Recepción (CU8)
+### Identificar Cliente en Recepción (CU8)
 
 ![Identificar Cliente en Recepción (CU8)](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcblxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlczo9IGJ1c2NhckNsaWVudGUobm9tYnJlQ2xpZW50ZTogc3RyaW5nKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlOj0gc2VsZWNjaW9uYXJDbGllbnRlKGlkOiBzdHJpbmcpXG4gICAgXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
 
-
 ```
 sequenceDiagram 
-    
     participant Recepcionista
     participant SGH
         Recepcionista ->>+ SGH: clientes:= buscarCliente(nombreCliente: string)
