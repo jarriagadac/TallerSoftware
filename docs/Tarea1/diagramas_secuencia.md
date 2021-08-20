@@ -226,3 +226,17 @@ sequenceDiagram
         Cliente ->> SGH: cliente:= obtenerCliente(id_cliente: int)
         end
 ```
+
+### Confirmar Reserva (CU10)
+
+![ConfirmarReserva](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFNHSFxuICAgIHBhcnRpY2lwYW50IFNpc3RlbWFEZU1lbnNhamVyaWFcblxuICAgICAgICBTR0ggLT4-IFNHSDogbWVuc2FqZSA6PSBwcmVwYXJhck1lbnNhamUoKTogc3RyaW5nXG4gICAgICAgIFNHSCAtPj4gU2lzdGVtYURlTWVuc2FqZXJpYTogZW52aWFyTWVuc2FqZUNsaWVudGUobWVuc2FqZTogc3RyaW5nLCBtZWNhbmlzbW86IE1lY2FuaXNtb0NvbXVuaWNhY2nDs24pXG5cblxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
+
+```
+sequenceDiagram 
+
+    participant SGH
+    participant SistemaDeMensajeria
+
+        SGH ->> SGH: mensaje := prepararMensaje(): string
+        SGH ->> SistemaDeMensajeria: enviarMensajeCliente(mensaje: string, mecanismo: MecanismoComunicación)
+```
