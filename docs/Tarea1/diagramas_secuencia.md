@@ -94,12 +94,6 @@ sequenceDiagram
     end
 ```
 
-## (C) Tomar Reserva (para revisar) 
-
-Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagramas de secuencia de UML, para el caso de uso Tomar Reserva (CU4).
-
-### versión 1
-
 ## (D) Cancelar Reserva (para revisar) 
 
 Especificar el caso de uso Cancelar Reserva (CU3), tal como están especificados los otros casos de uso en el documento Especificación de Requisitos.
