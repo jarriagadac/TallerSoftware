@@ -108,23 +108,6 @@ Especificar el caso de uso Cancelar Reserva (CU3), tal como están especificados
 | Extensiones | |
 | | (2) extensiones |
 
-## Anexo
-
-Identificar Cliente en Recepción (CU8)
-
-![Identificar Cliente en Recepción (CU8)](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcblxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlczo9IGJ1c2NhckNsaWVudGUobm9tYnJlQ2xpZW50ZTogc3RyaW5nKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlOj0gc2VsZWNjaW9uYXJDbGllbnRlKGlkOiBzdHJpbmcpXG4gICAgXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
-
-
-```
-sequenceDiagram 
-    
-    participant Recepcionista
-    participant SGH
-        Recepcionista ->>+ SGH: clientes:= buscarCliente(nombreCliente: string)
-        Recepcionista ->>+ SGH: cliente:= seleccionarCliente(id: string)
-```
-
-
 > (1) curso títico
 >
 > 1. Incluir Identificar Cliente (CU8|CU9)
@@ -142,35 +125,19 @@ sequenceDiagram
 
 Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagramas de secuencia de UML, para el caso de uso Cancelar Reserva (CU3).
 
-![Tarea 1.2 - Diagrama de secuencia D)](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENsaWVudGVcbiAgICBwYXJ0aWNpcGFudCBSZWNlcGNpb25pc3RhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlRmFjdHVyYWNpw7NuXG4gIFxuICAgIENsaWVudGUgLT4-KyBSZWNlcGNpb25pc3RhOiBFbnRyZWdhckRhdG9zUmVzZXJ2YShjb2RpZ28sIG5vbWJyZV9jbGllbnRlLCBmZWNoYV9jaGVja19pbiwgZmVjaGFfY2hlY2tfb3V0KVxuICAgIFJlY2VwY2lvbmlzdGEgLT4-LSBTR0g6IENvbnN1bHRhclJlc2VydmFQb3JJRChjb2RpZ28pXG4gICAgYWN0aXZhdGUgU0dIXG4gICAgYWx0IE5vIHNlIHRpZW5lIHJlc2VydmEgcmVnaXN0cmFkYVxuICAgICAgICBTR0ggLS0-KyBSZWNlcGNpb25pc3RhOiBEZXZvbHZlclJlc2VydmFOb0VuY29udHJhZGEobWVuc2FqZSlcbiAgICAgICAgZGVhY3RpdmF0ZSBTR0hcbiAgICAgICAgUmVjZXBjaW9uaXN0YSAtLT4tQ2xpZW50ZTogRGV2b2x2ZXJSZXNlcnZhTm9FbmNvbnRyYWRhKG1lbnNhamUpICAgICAgIFxuICAgIGVsc2UgU2UgdGllbmUgcmVzZXJ2YSByZWdpc3RyYWRhXG4gICAgICAgIFNHSCAtLT4rIFJlY2VwY2lvbmlzdGE6IERldm9sdmVyRGF0b3NSZXNlcnZhKClcbiAgICBlbmRcbiAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBBbnVsYXJSZXNlcnZhKGNvZGlnbylcbiAgICBhbHQgTm8gc2UgaGEgbGxlZ2FkbyBhIGZlY2hhIGRlIHNlciB0b21hZGFcbiAgICAgICAgU0dIIC0tPiBSZWNlcGNpb25pc3RhOiBEZXZvbHZlckVzdGFkb1Jlc2VydmEobWVuc2FqZSlcbiAgICBlbHNlIFNlIGxsZWfDsyBhIGxhIGZlY2hhIGRlIHNlciB0b21hZGFcbiAgICAgICAgU0dIIC0-Pi0gU2lzdGVtYURlRmFjdHVyYWNpw7NuOiBTb2xpY2l0YXJSZWVtYm9sc28oY29kaWdvLCBkaWFzX3Jlc3RhbnRlcylcbiAgICAgICAgYWN0aXZhdGUgU2lzdGVtYURlRmFjdHVyYWNpw7NuXG4gICAgICAgIFNpc3RlbWFEZUZhY3R1cmFjacOzbiAtLT4rIFNHSDogRW50cmVnYVJlZW1ib2xzbyhjb2RpZ28sIGNvZGlnb19vcGVyYWNpb24sIGN1ZW50YSwgbW9udG8pXG4gICAgICAgIGRlYWN0aXZhdGUgU2lzdGVtYURlRmFjdHVyYWNpw7NuXG4gICAgICAgIFNHSCAtPj4gU0dIOiBQcm9jZXNhckFudWxhY2lvbihjb2RpZ28sIGN1ZW50YSwgbW9udG8pXG4gICAgICAgIFNHSCAtLT4tIFJlY2VwY2lvbmlzdGE6IERldm9sdmVyRXN0YWRvUmVzZXJ2YShtZW5zYWplKVxuICAgIGVuZFxuXG5cbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
+![CancelarReserva](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXLDrWFcbiAgICBOb3RlIG92ZXIgQ3JlYWRvclJlc2VydmEsU0dIOiBJZGVudGlmaWNhciBDbGllbnRlIChDVTh8Q1U5KVxuICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTR0g6IElkZW50aWZpY2FyIFJlc2VydmEgZGUgQ2xpZW50ZSAoQ1U3KVxuXG4gICAgb3B0IGRlY2lkZSBjYW5jZWxhciByZXNlcnZhXG4gICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PiBTR0g6IGNhbmNlbGFyUmVzZXJ2YShpZF9yZXNlcnZhKVxuICAgICAgICBOb3RlIG92ZXIgU0dILFNpc3RlbWFEZU1lbnNhamVyw61hOiBDb25maXJtYXIgUmVzZXJ2YSAoQ1UxMClcbiAgICBlbmRcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
 
 ```
 sequenceDiagram 
-    participant Cliente
-    participant Recepcionista
+    participant CreadorReserva
     participant SGH
-    participant SistemaDeFacturación
-  
-    Cliente ->>+ Recepcionista: EntregarDatosReserva(codigo, nombre_cliente, fecha_check_in, fecha_check_out)
-    Recepcionista ->>- SGH: ConsultarReservaPorID(codigo)
-    activate SGH
-    alt No se tiene reserva registrada
-        SGH -->+ Recepcionista: DevolverReservaNoEncontrada(mensaje)
-        deactivate SGH
-        Recepcionista -->-Cliente: DevolverReservaNoEncontrada(mensaje)       
-    else Se tiene reserva registrada
-        SGH -->+ Recepcionista: DevolverDatosReserva()
-    end
-    Recepcionista ->>+ SGH: AnularReserva(codigo)
-    alt No se ha llegado a fecha de ser tomada
-        SGH --> Recepcionista: DevolverEstadoReserva(mensaje)
-    else Se llegó a la fecha de ser tomada
-        SGH ->>- SistemaDeFacturación: SolicitarReembolso(codigo, dias_restantes)
-        activate SistemaDeFacturación
-        SistemaDeFacturación -->+ SGH: EntregaReembolso(codigo, codigo_operacion, cuenta, monto)
-        deactivate SistemaDeFacturación
-        SGH ->> SGH: ProcesarAnulacion(codigo, cuenta, monto)
-        SGH -->- Recepcionista: DevolverEstadoReserva(mensaje)
+    participant SistemaDeMensajería
+    Note over CreadorReserva,SGH: Identificar Cliente (CU8|CU9)
+    Note over CreadorReserva,SGH: Identificar Reserva de Cliente (CU7)
+
+    opt decide cancelar reserva
+        CreadorReserva ->> SGH: cancelarReserva(id_reserva)
+        Note over SGH,SistemaDeMensajería: Confirmar Reserva (CU10)
     end
 ```
 
@@ -218,3 +185,20 @@ s6 --> s2 : Se cambian datos de reserva
  s5 --> [*]
  
  ```
+ 
+ ## Anexo
+
+Identificar Cliente en Recepción (CU8)
+
+![Identificar Cliente en Recepción (CU8)](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcblxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlczo9IGJ1c2NhckNsaWVudGUobm9tYnJlQ2xpZW50ZTogc3RyaW5nKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlOj0gc2VsZWNjaW9uYXJDbGllbnRlKGlkOiBzdHJpbmcpXG4gICAgXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
+
+
+```
+sequenceDiagram 
+    
+    participant Recepcionista
+    participant SGH
+        Recepcionista ->>+ SGH: clientes:= buscarCliente(nombreCliente: string)
+        Recepcionista ->>+ SGH: cliente:= seleccionarCliente(id: string)
+```
+
