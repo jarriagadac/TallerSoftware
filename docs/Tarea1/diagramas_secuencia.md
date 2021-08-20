@@ -108,22 +108,6 @@ Especificar el caso de uso Cancelar Reserva (CU3), tal como están especificados
 | Extensiones | |
 | | (2) extensiones |
 
-## Anexo
-
-![Identificar Cliente en Recepción (CU8)]
-(https://mermaid-js.github.io/mermaid-live-editor/view/#eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcblxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlczo9IGJ1c2NhckNsaWVudGUobm9tYnJlQ2xpZW50ZTogc3RyaW5nKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlOj0gc2VsZWNjaW9uYXJDbGllbnRlKGlkOiBzdHJpbmcpXG4gICAgXG4iLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGVmYXVsdFwiXG59IiwidXBkYXRlRWRpdG9yIjp0cnVlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6dHJ1ZX0)
-
-
-```
-sequenceDiagram 
-    
-    participant Recepcionista
-    participant SGH
-        Recepcionista ->>+ SGH: clientes:= buscarCliente(nombreCliente: string)
-        Recepcionista ->>+ SGH: cliente:= seleccionarCliente(id: string)
-```
-
-
 > (1) curso títico
 >
 > 1. Incluir Identificar Cliente (CU8|CU9)
@@ -215,5 +199,30 @@ s6 --> s2 : Se cambian datos de reserva
  s4 --> s5 : se confirma reserva
 
  s5 --> [*]
+ 
+ ```
+## (E) Máquina de Estados 1.2 (para revisar) 
+
+Construir, para el caso de uso Hacer Reserva (CU1), una máquina de estados que represente el estado del sistema en la interacción con los actores.
+
+![Tarea 1.2 - Máquina de estados E)]
+(https://mermaid-js.github.io/mermaid-live-editor/edit#eyJjb2RlIjoic3RhdGVEaWFncmFtLXYyXG4gICAgWypdIC0tPiBJZGVudGlmaWNhbmRvQ2xpZW50ZVxuICAgIElkZW50aWZpY2FuZG9DbGllbnRlIC0tPiBJZGVudGlmaWNhbmRvQ2xpZW50ZTogYnVzY2FyQ2xpZW50ZVxuICAgIElkZW50aWZpY2FuZG9DbGllbnRlIC0tPiBkZWNpZGllbmRvSG90ZWw6c2VsZWNjaW9uYXJDbGllbnRlXG4gICAgSWRlbnRpZmljYW5kb0NsaWVudGUgLS0-IGRlY2lkaWVuZG9Ib3RlbDpyZWdpc3RyYXJDbGllbnRlXG4gICAgc3RhdGUgaWZfc3RhdGUgPDxjaG9pY2U-PlxuICAgIGRlY2lkaWVuZG9Ib3RlbCAtLT4gaWZfc3RhdGU6IGNvbmZpcm1hckRpc3BvbmliaWxpZGFkXG4gICAgaWZfc3RhdGUgLS0-IGhvdGVsQ29uRGlzcG9uaWJpbGlkYWQ6IFt0cnVlXVxuICAgIGlmX3N0YXRlIC0tPiBob3RlbFNpbkRpc3BvbmliaWxpZGFkOiBbZmFsc2VdXG4gICAgaG90ZWxTaW5EaXNwb25pYmlsaWRhZCAtLT4gc2VsZWNjaW9uYW5kb0hvdGVsOiBidXNjYXJBbHRlcm5hdGl2YXNcbiAgICBzZWxlY2Npb25hbmRvSG90ZWwgLS0-IGlmX3N0YXRlOiBjb25maXJtYXJEaXNwb25pYmlsaWRhZFxuICAgIHNlbGVjY2lvbmFuZG9Ib3RlbCAtLT4gc2VsZWNjaW9uYW5kb0hvdGVsOiBidXNjYXJBbHRlcm5hdGl2YVxuICAgIHNlbGVjY2lvbmFuZG9Ib3RlbCAtLT4gbm90aWZpY2FuZG9SZXNlcnZhOnJlZ2lzdHJhclJlc2VydmFcbiAgICBob3RlbENvbkRpc3BvbmliaWxpZGFkIC0tPiBub3RpZmljYW5kb1Jlc2VydmE6cmVnaXN0cmFyUmVzZXJ2YVxuICAgIG5vdGlmaWNhbmRvUmVzZXJ2YSAtLT4gWypdOi9lbnZpYXJNYWlsIiwibWVybWFpZCI6IntcbiAgXCJ0aGVtZVwiOiBcImRlZmF1bHRcIlxufSIsInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
+
+```
+stateDiagram-v2
+    [*] --> IdentificandoCliente
+    IdentificandoCliente --> IdentificandoCliente: buscarCliente
+    IdentificandoCliente --> decidiendoHotel:seleccionarCliente
+    IdentificandoCliente --> decidiendoHotel:registrarCliente
+    state if_state <<choice>>
+    decidiendoHotel --> if_state: confirmarDisponibilidad
+    if_state --> hotelConDisponibilidad: [true]
+    if_state --> hotelSinDisponibilidad: [false]
+    hotelSinDisponibilidad --> seleccionandoHotel: buscarAlternativas
+    seleccionandoHotel --> if_state: confirmarDisponibilidad
+    seleccionandoHotel --> seleccionandoHotel: buscarAlternativa
+    seleccionandoHotel --> notificandoReserva:registrarReserva
+    hotelConDisponibilidad --> notificandoReserva:registrarReserva
+    notificandoReserva --> [*]:/enviarMail
  
  ```
