@@ -206,3 +206,23 @@ sequenceDiagram
         Recepcionista ->>+ SGH: cliente:= seleccionarCliente(id: string)
 ```
 
+### Log-In Cliente (CU9)
+
+![LoginCliente](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IENsaWVudGVcbiAgICBwYXJ0aWNpcGFudCBTR0hcbiAgICBwYXJ0aWNpcGFudCBTaXN0ZW1hRGVNZW5zYWplcmlhXG5cbiAgICAgICAgb3B0IENsaWVudGUgbm8gY29ub2NlIGVsIHBhc3N3b3JkXG4gICAgICAgIENsaWVudGUgLT4-IFNHSDogcmVjdXBlcmFyUGFzc3dvcmQodXN1YXJpbzogc3RyaW5nKVxuICAgICAgICBTR0ggLT4-IFNpc3RlbWFEZU1lbnNhamVyaWE6IGVudmlhclBhc3N3b3JkKHVzdWFyaW86IHN0cmluZylcbiAgICAgICAgZW5kXG4gICAgICAgIENsaWVudGUgLT4-IFNHSDogdmFsaWRvOj0gYXV0ZW50aWNhckNsaWVudGUodXN1YXJpbzogc3RyaW5nLCBwYXNzd29yZDogc3RyaW5nKTogYm9vbGVhblxuICAgICAgICBvcHQgQ3JlZGVuY2lhbGVzIGNvcnJlY3Rhc1xuICAgICAgICBDbGllbnRlIC0-PiBTR0g6IGNsaWVudGU6PSBvYnRlbmVyQ2xpZW50ZShpZF9jbGllbnRlOiBpbnQpXG4gICAgICAgIGVuZFxuICAgIFxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
+
+```
+sequenceDiagram 
+    
+    participant Cliente
+    participant SGH
+    participant SistemaDeMensajeria
+
+        opt Cliente no conoce el password
+        Cliente ->> SGH: recuperarPassword(usuario: string)
+        SGH ->> SistemaDeMensajeria: enviarPassword(usuario: string)
+        end
+        Cliente ->> SGH: valido:= autenticarCliente(usuario: string, password: string): boolean
+        opt Credenciales correctas
+        Cliente ->> SGH: cliente:= obtenerCliente(id_cliente: int)
+        end
+```
