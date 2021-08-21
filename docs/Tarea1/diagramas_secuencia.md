@@ -4,7 +4,7 @@
 
 Construir los Diagramas de Secuencia del Sistema, expresándolos mediante diagramas de secuencia de UML, para el caso de uso Hacer Reserva (CU1). Para ello considerar solamente los casos de uso incluidos Identificar Cliente en Recepción (CU8) y Alta Cliente.
 
-![HacerReservas](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXLDrWFcblxuICAgICUlIDFcbiAgICBhbHQgY2xpZW50ZSBubyByZWdpc3RyYWRvXG4gICAgICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTR0g6IEFsdGEgZGUgQ2xpZW50ZVxuICAgIGVsc2UgY2xpZW50ZSByZWdpc3RyYWRvXG4gICAgICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTR0g6IEluY2x1aXIgSWRlbnRpZmljYXIgQ2xpZW50ZSAoQ1U4fENVOSlcbiAgICBlbmRcblxuICAgICUlIDIgeSAzXG4gICAgbG9vcFxuICAgICAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiBkaXNwb25pYmlsaWRhZCA6PSBjb25maXJtYXJEaXNwb25pYmlsaWRhZChpZF9ob3RlbDogaW50LCBpZF90aXBvX2hhYml0YWNpb246IGludCwgZmluaWNpbzogZGF0ZSwgZmZpbjogZGF0ZSkgOiBCb29sXG4gICAgICAgIG9wdCBubyBoYXkgZGlzcG9uaWJpbGlkYWRcbiAgICAgICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PiBTR0g6IGFsdGVybmF0aXZhcyA6PSBidXNjYXJBbHRlcm5hdGl2YXMocGFpczogc3RyLCBpZF90aXBvX2hhYml0YWNpb246IGludCwgZmluaWNpbzogZGF0ZSwgZmZpbjogZGF0ZSkgOiBMaXN0PEhvdGVsPlxuICAgICAgICBlbmRcbiAgICBlbmRcbiAgICBcbiAgICAlJTRcbiAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiByZWdpc3RyYXJSZXNlcnZhKGlkX2hvdGVsOiBpbnQsIGlkX3RpcG9faGFiaXRhY2lvbjogaW50LCBmaW5pY2lvOiBkYXRlLCBmZmluOiBkYXRlLCBtb2RpZmljYWJsZTogYm9vbClcblxuICAgIE5vdGUgb3ZlciBTR0gsU2lzdGVtYURlTWVuc2FqZXLDrWE6IEluY2x1aXIgQ29uZmlybWFyIFJlc2VydmEgKENVMTApIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
+![HacerReservas](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXLDrWFcblxuICAgICUlIDFcbiAgICBhbHQgY2xpZW50ZSBubyByZWdpc3RyYWRvXG4gICAgICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTR0g6IEFsdGEgZGUgQ2xpZW50ZVxuICAgIGVsc2UgY2xpZW50ZSByZWdpc3RyYWRvXG4gICAgICAgIE5vdGUgb3ZlciBDcmVhZG9yUmVzZXJ2YSxTR0g6IEluY2x1aXIgSWRlbnRpZmljYXIgQ2xpZW50ZSAoQ1U4fENVOSlcbiAgICBlbmRcblxuICAgICUlIDIgeSAzXG4gICAgbG9vcFxuICAgICAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiBkaXNwb25pYmlsaWRhZCA6PSBjb25maXJtYXJEaXNwb25pYmlsaWRhZChpZF9ob3RlbDogaW50LCBpZF90aXBvX2hhYml0YWNpb246IGludCwgZmluaWNpbzogZGF0ZSwgZmZpbjogZGF0ZSkgOiBCb29sZWFuXG4gICAgICAgIG9wdCBubyBoYXkgZGlzcG9uaWJpbGlkYWRcbiAgICAgICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PiBTR0g6IGFsdGVybmF0aXZhcyA6PSBidXNjYXJBbHRlcm5hdGl2YXMocGFpczogc3RyLCBpZF90aXBvX2hhYml0YWNpb246IGludCwgZmluaWNpbzogZGF0ZSwgZmZpbjogZGF0ZSkgOiBMaXN0PEhvdGVsPlxuICAgICAgICBlbmRcbiAgICBlbmRcbiAgICBcbiAgICAlJTRcbiAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiByZWdpc3RyYXJSZXNlcnZhKGlkX2hvdGVsOiBpbnQsIGlkX3RpcG9faGFiaXRhY2lvbjogaW50LCBmaW5pY2lvOiBkYXRlLCBmZmluOiBkYXRlLCBtb2RpZmljYWJsZTogYm9vbCkgOiBSZXNlcnZhIFxuXG4gICAgTm90ZSBvdmVyIFNHSCxTaXN0ZW1hRGVNZW5zYWplcsOtYTogSW5jbHVpciBDb25maXJtYXIgUmVzZXJ2YSAoQ1UxMCkiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
 
 ```
 sequenceDiagram 
@@ -21,14 +21,14 @@ sequenceDiagram
 
     %% 2 y 3
     loop
-        CreadorReserva ->> SGH: disponibilidad := confirmarDisponibilidad(id_hotel: int, id_tipo_habitacion: int, finicio: date, ffin: date) : Bool
+        CreadorReserva ->> SGH: disponibilidad := confirmarDisponibilidad(id_hotel: int, id_tipo_habitacion: int, finicio: date, ffin: date) : Boolean
         opt no hay disponibilidad
             CreadorReserva ->> SGH: alternativas := buscarAlternativas(pais: str, id_tipo_habitacion: int, finicio: date, ffin: date) : List<Hotel>
         end
     end
     
     %%4
-    CreadorReserva ->> SGH: registrarReserva(id_hotel: int, id_tipo_habitacion: int, finicio: date, ffin: date, modificable: bool)
+    CreadorReserva ->> SGH: registrarReserva(id_hotel: int, id_tipo_habitacion: int, finicio: date, ffin: date, modificable: bool) : Reserva
 
     Note over SGH,SistemaDeMensajería: Incluir Confirmar Reserva (CU10)
 ```
@@ -196,43 +196,47 @@ sequenceDiagram
 
 ### Identificar Cliente en Recepción (CU8)
 
-![IdentificarClienteRecepcion](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcbiAgICAgICAgUmVjZXBjaW9uaXN0YSAtPj4rIFNHSDogY2xpZW50ZXMgOj0gYnVzY2FyQ2xpZW50ZShub21icmVfY2xpZW50ZTogc3RyaW5nKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlIDo9IHNlbGVjY2lvbmFyQ2xpZW50ZShpZDogc3RyaW5nKSIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
+![IdentificarClienteRecepcion](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFJlY2VwY2lvbmlzdGFcbiAgICBwYXJ0aWNpcGFudCBTR0hcblxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlczo9IGJ1c2NhckNsaWVudGUobm9tYnJlQ2xpZW50ZTogc3RyaW5nKVxuICAgICAgICBSZWNlcGNpb25pc3RhIC0-PisgU0dIOiBjbGllbnRlOj0gc2VsZWNjaW9uYXJDbGllbnRlKGlkOiBzdHJpbmcpXG4gICAgXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
 
 ```
 sequenceDiagram 
     participant Recepcionista
     participant SGH
-        Recepcionista ->>+ SGH: clientes := buscarCliente(nombre_cliente: string)
-        Recepcionista ->>+ SGH: cliente := seleccionarCliente(id: string)
+        Recepcionista ->>+ SGH: clientes:= buscarCliente(nombreCliente: string)
+        Recepcionista ->>+ SGH: cliente:= seleccionarCliente(id: string)
 ```
 
 ### Log-In Cliente (CU9)
 
-![LoginCliente](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENsaWVudGVcbiAgICBwYXJ0aWNpcGFudCBTR0hcbiAgICBwYXJ0aWNpcGFudCBTaXN0ZW1hRGVNZW5zYWplcmlhXG4gICAgb3B0IENsaWVudGUgbm8gY29ub2NlIGVsIHBhc3N3b3JkXG4gICAgICAgIENsaWVudGUgLT4-IFNHSDogcmVjdXBlcmFyUGFzc3dvcmQodXN1YXJpbzogc3RyaW5nKVxuICAgICAgICBTR0ggLT4-IFNpc3RlbWFEZU1lbnNhamVyaWE6IGVudmlhclBhc3N3b3JkKHVzdWFyaW86IHN0cmluZylcbiAgICBlbmRcbiAgICBDbGllbnRlIC0-PiBTR0g6IHZhbGlkbyA6PSBhdXRlbnRpY2FyQ2xpZW50ZSh1c3VhcmlvOiBzdHJpbmcsIHBhc3N3b3JkOiBzdHJpbmcpOiBib29sZWFuXG4gICAgb3B0IENyZWRlbmNpYWxlcyBjb3JyZWN0YXNcbiAgICAgICAgQ2xpZW50ZSAtPj4gU0dIOiBjbGllbnRlIDo9IG9idGVuZXJDbGllbnRlKGlkX2NsaWVudGU6IGludClcbiAgICBlbmQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
+![LoginCliente](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IENsaWVudGVcbiAgICBwYXJ0aWNpcGFudCBTR0hcbiAgICBwYXJ0aWNpcGFudCBTaXN0ZW1hRGVNZW5zYWplcmlhXG5cbiAgICAgICAgb3B0IENsaWVudGUgbm8gY29ub2NlIGVsIHBhc3N3b3JkXG4gICAgICAgIENsaWVudGUgLT4-IFNHSDogcmVjdXBlcmFyUGFzc3dvcmQodXN1YXJpbzogc3RyaW5nKVxuICAgICAgICBTR0ggLT4-IFNpc3RlbWFEZU1lbnNhamVyaWE6IGVudmlhclBhc3N3b3JkKHVzdWFyaW86IHN0cmluZylcbiAgICAgICAgZW5kXG4gICAgICAgIENsaWVudGUgLT4-IFNHSDogdmFsaWRvOj0gYXV0ZW50aWNhckNsaWVudGUodXN1YXJpbzogc3RyaW5nLCBwYXNzd29yZDogc3RyaW5nKTogYm9vbGVhblxuICAgICAgICBvcHQgQ3JlZGVuY2lhbGVzIGNvcnJlY3Rhc1xuICAgICAgICBDbGllbnRlIC0-PiBTR0g6IGNsaWVudGU6PSBvYnRlbmVyQ2xpZW50ZShpZF9jbGllbnRlOiBpbnQpXG4gICAgICAgIGVuZFxuICAgIFxuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
 
 ```
 sequenceDiagram 
+    
     participant Cliente
     participant SGH
     participant SistemaDeMensajeria
-    opt Cliente no conoce el password
+
+        opt Cliente no conoce el password
         Cliente ->> SGH: recuperarPassword(usuario: string)
         SGH ->> SistemaDeMensajeria: enviarPassword(usuario: string)
-    end
-    Cliente ->> SGH: valido := autenticarCliente(usuario: string, password: string): boolean
-    opt Credenciales correctas
-        Cliente ->> SGH: cliente := obtenerCliente(id_cliente: int)
-    end
+        end
+        Cliente ->> SGH: valido:= autenticarCliente(usuario: string, password: string): boolean
+        opt Credenciales correctas
+        Cliente ->> SGH: cliente:= obtenerCliente(id_cliente: int)
+        end
 ```
 
 ### Confirmar Reserva (CU10)
 
-![ConfirmarReserva](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIFxuICAgIHBhcnRpY2lwYW50IFNHSFxuICAgIHBhcnRpY2lwYW50IFNpc3RlbWFEZU1lbnNhamVyaWFcblxuICAgICAgICBTR0ggLT4-IFNHSDogbWVuc2FqZSA6PSBwcmVwYXJhck1lbnNhamUoKTogc3RyaW5nXG4gICAgICAgIFNHSCAtPj4gU2lzdGVtYURlTWVuc2FqZXJpYTogZW52aWFyTWVuc2FqZUNsaWVudGUobWVuc2FqZTogc3RyaW5nLCBtZWNhbmlzbW86IE1lY2FuaXNtb0NvbXVuaWNhY2lvbilcblxuXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
+![ConfirmarReserva](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuXG4gICAgcGFydGljaXBhbnQgU0dIXG4gICAgcGFydGljaXBhbnQgU2lzdGVtYURlTWVuc2FqZXJpYVxuXG4gICAgICAgIFNHSCAtPj4gU0dIOiBtZW5zYWplIDo9IHByZXBhcmFyTWVuc2FqZShyZXNlcnZhOiBSZXNlcnZhKTogc3RyaW5nXG4gICAgICAgIFNHSCAtPj4gU2lzdGVtYURlTWVuc2FqZXJpYTogZW52aWFyTWVuc2FqZUNsaWVudGUobWVuc2FqZTogc3RyaW5nLCBtZWNhbmlzbW86IE1lY2FuaXNtb0NvbXVuaWNhY2lvbikiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
 
 ```
 sequenceDiagram 
+
     participant SGH
     participant SistemaDeMensajeria
-    SGH ->> SGH: mensaje := prepararMensaje(): string
-    SGH ->> SistemaDeMensajeria: enviarMensajeCliente(mensaje: string, mecanismo: MecanismoComunicacion)
+
+        SGH ->> SGH: mensaje := prepararMensaje(reserva: Reserva): string
+        SGH ->> SistemaDeMensajeria: enviarMensajeCliente(mensaje: string, mecanismo: MecanismoComunicacion)
 ```
