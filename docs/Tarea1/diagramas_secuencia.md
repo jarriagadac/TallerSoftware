@@ -179,17 +179,17 @@ stateDiagram
 
 ### Identificar Reserva de Cliente (CU7)
 
-![IdentificarClienteRecepcion](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG5cbiAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiByZXNlcnZhcyA9IG9idGVuZXJSZXNlcnZhc0NsaWVudGUoaWRfY2xpZW50ZSwgW05PX1RPTUFEQV0pOiBMaXN0PFJlc2VydmE-XG4gICAgXG4gICAgb3B0IGV4aXN0ZW4gcmVzZXJ2YXNcbiAgICAgICAgQ3JlYWRvclJlc2VydmEgLT4-IFNHSDogcmVzZXJ2YSA9IG9idGVuZXJSZXNlcnZhKGlkX3Jlc2VydmEpOiBSZXNlcnZhXG4gICAgZW5kXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
+![IdentificarClienteRecepcion](https://mermaid.ink/svg/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtIFxuICAgIHBhcnRpY2lwYW50IENyZWFkb3JSZXNlcnZhXG4gICAgcGFydGljaXBhbnQgU0dIXG5cbiAgICBDcmVhZG9yUmVzZXJ2YSAtPj4gU0dIOiByZXNlcnZhcyA6PSBvYnRlbmVyUmVzZXJ2YXNDbGllbnRlKGlkX2NsaWVudGUsIFtOT19UT01BREFdKTogTGlzdDxSZXNlcnZhPlxuICAgIFxuICAgIG9wdCBleGlzdGVuIHJlc2VydmFzXG4gICAgICAgIENyZWFkb3JSZXNlcnZhIC0-PiBTR0g6IHJlc2VydmEgOj0gb2J0ZW5lclJlc2VydmEoaWRfcmVzZXJ2YSk6IFJlc2VydmFcbiAgICBlbmQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
 
 ```
 sequenceDiagram 
     participant CreadorReserva
     participant SGH
 
-    CreadorReserva ->> SGH: reservas = obtenerReservasCliente(id_cliente, [NO_TOMADA]): List<Reserva>
+    CreadorReserva ->> SGH: reservas := obtenerReservasCliente(id_cliente, [NO_TOMADA]): List<Reserva>
     
     opt existen reservas
-        CreadorReserva ->> SGH: reserva = obtenerReserva(id_reserva): Reserva
+        CreadorReserva ->> SGH: reserva := obtenerReserva(id_reserva): Reserva
     end
 ```
 
