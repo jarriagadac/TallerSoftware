@@ -77,6 +77,8 @@ public class CadenaHotelera {
 	}
 
 	public Set<Cliente> buscarClientes(String patronNombreCliente) {
+		if(patronNombreCliente == null) return null;
+		
 		Set<Cliente> clientesEncontrados = new HashSet<Cliente>();
 
 		for (Cliente cliente : this.clientes.values()) {
