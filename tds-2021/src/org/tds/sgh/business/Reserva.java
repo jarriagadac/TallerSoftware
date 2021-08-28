@@ -31,7 +31,7 @@ public class Reserva {
 		this.modificablePorHuesped = modificablePorHuesped;
 		this.cliente = cliente;
 		this.tipoHabitacion = tipoHabitacion;
-		//this.huespedes = new HashSet<Huesped>();
+		this.huespedes = new HashSet<Huesped>();
 	}
 	
 	public long getCodigo() {

@@ -45,7 +45,8 @@ public class TomarReservaController implements ITomarReservaController {
 	@Override
 	public ReservaDTO registrarReserva(String nombreHotel, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
 			GregorianCalendar fechaFin, boolean modificablePorHuesped) throws Exception {
-		return DTO.getInstance().map(this.ch.registrarReserva(this.clienteSeleccionado, nombreHotel, nombreTipoHabitacion, fechaInicio, fechaFin, modificablePorHuesped));
+		this.reservaSeleccionada = this.ch.registrarReserva(this.clienteSeleccionado, nombreHotel, nombreTipoHabitacion, fechaInicio, fechaFin, modificablePorHuesped);
+		return DTO.getInstance().map(this.reservaSeleccionada);
 	}
 
 	@Override
@@ -74,7 +75,7 @@ public class TomarReservaController implements ITomarReservaController {
 
 	@Override
 	public ReservaDTO seleccionarReserva(long codigoReserva) throws Exception {
-		this.reservaSeleccionada = this.ch.seleccionarReserva(this.clienteSeleccionado, codigoReserva);
+		this.reservaSeleccionada = this.ch.seleccionarReserva(codigoReserva);
 		return DTO.getInstance().map(this.reservaSeleccionada);
 	}
 

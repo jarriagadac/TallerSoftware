@@ -59,16 +59,19 @@ public class Hotel {
 			GregorianCalendar fechaFin) {
 		int cantHabs = 0;
 		for (Habitacion hab : this.habitaciones.values()) {
-			if(hab.habDeTipo(th)) cantHabs++;
+			if (hab.habDeTipo(th))
+				cantHabs++;
 		}
 		int cantRes = 0;
-		for(Reserva res : this.reservas.values()) {
-			if(res.tieneConflicto(th, fechaInicio, fechaFin)) cantRes++;
+		for (Reserva res : this.reservas.values()) {
+			if (res.tieneConflicto(th, fechaInicio, fechaFin))
+				cantRes++;
 		}
 		return cantHabs > cantRes;
 	}
-	
-	public Reserva registrarReserva(Cliente cliente, TipoHabitacion th, GregorianCalendar fechaInicio, GregorianCalendar fechaFin, boolean ModificablePorHuesped) {
+
+	public Reserva registrarReserva(Cliente cliente, TipoHabitacion th, GregorianCalendar fechaInicio,
+			GregorianCalendar fechaFin, boolean ModificablePorHuesped) {
 		Reserva reserva = new Reserva(cliente, this, th, fechaInicio, fechaFin, ModificablePorHuesped);
 		this.reservas.put(reserva.getCodigo(), reserva);
 		return reserva;
@@ -76,8 +79,9 @@ public class Hotel {
 
 	public Set<Reserva> buscarReservasPendientes() {
 		Set<Reserva> reservas = new HashSet<Reserva>();
-		for(Reserva res : this.reservas.values()) {
-			if(res.getEstado() == EstadoReserva.Pendiente) reservas.add(res);
+		for (Reserva res : this.reservas.values()) {
+			if (res.getEstado() == EstadoReserva.Pendiente)
+				reservas.add(res);
 		}
 		return reservas;
 	}
@@ -91,12 +95,21 @@ public class Hotel {
 	}
 
 	public Habitacion buscarHabitacionDisponible(TipoHabitacion tipoHabitacion) {
-		for(Habitacion hab : this.habitaciones.values()) {
-			if(hab.habDeTipo(tipoHabitacion) && this.habitacionesTomadas.containsValue(hab)) {
+		for (Habitacion hab : this.habitaciones.values()) {
+			if (hab.habDeTipo(tipoHabitacion) && this.habitacionesTomadas.containsValue(hab)) {
 				this.habitacionesTomadas.put(hab.getNombre(), hab);
 				return hab;
 			}
 		}
 		return null;
 	}
+
+	public boolean contieneReservaCodigo(long codigoReserva) {
+		return this.reservas.containsKey(codigoReserva);
+	}
+
+	public Reserva getReservaCodigo(long codigoReserva) {
+		return this.reservas.get(codigoReserva);
+	}
+	
 }

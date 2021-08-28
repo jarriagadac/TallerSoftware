@@ -19,7 +19,7 @@ public class CadenaHotelera {
 	private Map<String, Hotel> hoteles;
 	private String nombre;
 	private Map<String, TipoHabitacion> tiposHabitacion;
-	private Object reserva;
+	//private Object reserva;
 	
 	// --------------------------------------------------------------------------------------------
 
@@ -133,8 +133,11 @@ public class CadenaHotelera {
 		return h.buscarReservasPendientes();
 	}
 
-	public Reserva seleccionarReserva(Cliente cliente, long codigoReserva) {
-		return cliente.buscarReservaPorCodigo(codigoReserva);
+	public Reserva seleccionarReserva(long codigoReserva) {
+		for(Hotel h : this.hoteles.values()) {
+			if(h.contieneReservaCodigo(codigoReserva)) return h.getReservaCodigo(codigoReserva);
+		}
+		return null;
 	}
 
 	public Set<Reserva> buscarReservasDelCliente(Cliente cliente) {
