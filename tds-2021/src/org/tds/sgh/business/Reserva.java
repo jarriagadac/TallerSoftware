@@ -144,4 +144,10 @@ public class Reserva {
 		this.estado = EstadoReserva.Tomada;
 		return this;
 	}
+
+	public Reserva cancelar() {
+		this.estado = EstadoReserva.Cancelada;
+		this.enviarEmail();
+		return this;
+	}
 }

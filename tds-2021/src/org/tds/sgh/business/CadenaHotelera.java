@@ -197,4 +197,8 @@ public class CadenaHotelera {
 		
 		return h.confirmarDisponibilidad(th, fechaInicio, fechaFin);
 	}
+
+	public Reserva cancelarReserva(Reserva reserva) {
+		return reserva.cancelar();
+	}
 }

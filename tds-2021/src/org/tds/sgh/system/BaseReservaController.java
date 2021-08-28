@@ -50,4 +50,18 @@ public class BaseReservaController {
 			GregorianCalendar fechaFin) throws Exception {
 		return DTO.getInstance().mapHoteles(this.ch.sugerirAlternativas(pais, nombreTipoHabitacion, fechaInicio, fechaFin)); 
 	}
+	
+	public Set<ReservaDTO> buscarReservasDelCliente() throws Exception {
+		return DTO.getInstance().mapReservas(this.ch.buscarReservasDelCliente(this.clienteSeleccionado));
+	}
+	
+	public ReservaDTO seleccionarReserva(long codigoReserva) throws Exception {
+		this.reservaSeleccionada = this.ch.seleccionarReserva(codigoReserva);
+		return DTO.getInstance().map(this.reservaSeleccionada);
+	}
+	
+	public ReservaDTO modificarReserva(String nombreHotel, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
+			GregorianCalendar fechaFin, boolean modificablePorHuesped) throws Exception {
+		return DTO.getInstance().map(this.ch.modificarReserva(this.reservaSeleccionada, nombreHotel, nombreTipoHabitacion, fechaInicio, fechaFin, modificablePorHuesped));
+	} 
 }
