@@ -1,6 +1,7 @@
 package org.tds.sgh.business;
 
 import java.util.GregorianCalendar;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
@@ -30,6 +31,7 @@ public class Reserva {
 		this.modificablePorHuesped = modificablePorHuesped;
 		this.cliente = cliente;
 		this.tipoHabitacion = tipoHabitacion;
+		//this.huespedes = new HashSet<Huesped>();
 	}
 	
 	public long getCodigo() {
@@ -134,6 +136,12 @@ public class Reserva {
 		this.fechaFin = fechaFin;
 		this.modificablePorHuesped = modificablePorHuesped;
 		this.hotel.agregarReserva(this);
+		return this;
+	}
+
+	public Reserva asignarHabitacion() {
+		this.habitacion = this.hotel.buscarHabitacionDisponible(this.tipoHabitacion);
+		this.estado = EstadoReserva.Tomada;
 		return this;
 	}
 }

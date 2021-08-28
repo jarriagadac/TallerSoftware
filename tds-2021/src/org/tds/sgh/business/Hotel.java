@@ -6,12 +6,11 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.tds.sgh.dtos.ReservaDTO;
-
 public class Hotel {
 	// --------------------------------------------------------------------------------------------
 
 	private Map<String, Habitacion> habitaciones;
+	private Map<String, Habitacion> habitacionesTomadas;
 	private Map<Long, Reserva> reservas;
 
 	private String nombre;
@@ -22,6 +21,7 @@ public class Hotel {
 
 	public Hotel(String nombre, String pais) {
 		this.habitaciones = new HashMap<String, Habitacion>();
+		this.habitacionesTomadas = new HashMap<String, Habitacion>();
 		this.reservas = new HashMap<Long, Reserva>();
 
 		this.nombre = nombre;
@@ -88,5 +88,15 @@ public class Hotel {
 
 	public void agregarReserva(Reserva reserva) {
 		this.reservas.put(reserva.getCodigo(), reserva);
+	}
+
+	public Habitacion buscarHabitacionDisponible(TipoHabitacion tipoHabitacion) {
+		for(Habitacion hab : this.habitaciones.values()) {
+			if(hab.habDeTipo(tipoHabitacion) && this.habitacionesTomadas.containsValue(hab)) {
+				this.habitacionesTomadas.put(hab.getNombre(), hab);
+				return hab;
+			}
+		}
+		return null;
 	}
 }

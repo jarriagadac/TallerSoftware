@@ -1,8 +1,6 @@
 package org.tds.sgh.dtos;
 
-import java.util.GregorianCalendar;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import org.tds.sgh.business.Cliente;
@@ -16,6 +14,7 @@ public class DTO {
 	public ReservaDTO map(Reserva reserva) {
 		HuespedDTO[] huespedes = null;
 		if(reserva.getHuespedes() != null) huespedes = (HuespedDTO[]) reserva.getHuespedes().toArray();
+		//Set<HuespedDTO> huespedes = DTO.getInstance().mapHuespedes(reserva.getHuespedes());
 		
 		return new ReservaDTO(
 				reserva.getCodigo(), 

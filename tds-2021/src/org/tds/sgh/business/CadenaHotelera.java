@@ -16,55 +16,17 @@ public class CadenaHotelera {
 	// --------------------------------------------------------------------------------------------
 
 	private Map<String, Cliente> clientes;
-
 	private Map<String, Hotel> hoteles;
-
 	private String nombre;
-
 	private Map<String, TipoHabitacion> tiposHabitacion;
+	private Object reserva;
 	
-	public Set<Hotel> sugerirAlternativas(String pais, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
-			GregorianCalendar fechaFin) throws Exception {
-		Set<Hotel> hoteles = new HashSet<Hotel>();
-		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
-		for(Hotel h : this.hoteles.values()) {
-			if(h.confirmarDisponibilidad(th, fechaInicio, fechaFin) && h.getPais() == pais) {
-				hoteles.add(h);
-			}
-		}
-		return hoteles;
-	}
-	
-
-	public Reserva registrarReserva(Cliente cliente, String nombreHotel, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
-			GregorianCalendar fechaFin, boolean modificablePorHuesped) throws Exception {
-		Hotel h = this.hoteles.get(nombreHotel);
-		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
-		
-		Reserva reserva = h.registrarReserva(cliente, th, fechaInicio, fechaFin, modificablePorHuesped);
-		cliente.agregarReserva(reserva);
-		reserva.enviarEmail();
-		return reserva;
-	}
-	
-	
-	public boolean confirmarDisponibilidad(String nombreHotel, String nombreTipoHabitacion,
-			GregorianCalendar fechaInicio, GregorianCalendar fechaFin) throws Exception {
-		Hotel h = this.hoteles.get(nombreHotel);
-		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
-		
-		return h.confirmarDisponibilidad(th, fechaInicio, fechaFin);
-	}
-
 	// --------------------------------------------------------------------------------------------
 
 	public CadenaHotelera(String nombre) {
 		this.clientes = new HashMap<String, Cliente>();
-
 		this.hoteles = new HashMap<String, Hotel>();
-
 		this.nombre = nombre;
-
 		this.tiposHabitacion = new HashMap<String, TipoHabitacion>();
 	}
 
@@ -171,21 +133,17 @@ public class CadenaHotelera {
 		return h.buscarReservasPendientes();
 	}
 
-
 	public Reserva seleccionarReserva(Cliente cliente, long codigoReserva) {
 		return cliente.buscarReservaPorCodigo(codigoReserva);
 	}
-
 
 	public Set<Reserva> buscarReservasDelCliente(Cliente cliente) {
 		return cliente.buscarReservasActivas();
 	}
 
-
 	public Reserva registrarHuesped(Reserva reserva, String nombre, String documento) {
 		return reserva.agregarHuesped(nombre, documento);
 	}
-
 
 	public Reserva modificarReserva(Reserva reserva, String nombreHotel, String nombreTipoHabitacion,
 			GregorianCalendar fechaInicio, GregorianCalendar fechaFin, boolean modificablePorHuesped) {
@@ -194,5 +152,42 @@ public class CadenaHotelera {
 		reserva = reserva.modificarReserva(h, th, fechaInicio, fechaFin, modificablePorHuesped);
 		reserva.enviarEmail();
 		return reserva;
+	}
+
+	public Reserva tomarReserva(Reserva reserva) {
+		return reserva.asignarHabitacion();
+	}
+	
+	public Set<Hotel> sugerirAlternativas(String pais, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
+			GregorianCalendar fechaFin) throws Exception {
+		Set<Hotel> hoteles = new HashSet<Hotel>();
+		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
+		for(Hotel h : this.hoteles.values()) {
+			if(h.confirmarDisponibilidad(th, fechaInicio, fechaFin) && h.getPais() == pais) {
+				hoteles.add(h);
+			}
+		}
+		return hoteles;
+	}
+	
+
+	public Reserva registrarReserva(Cliente cliente, String nombreHotel, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
+			GregorianCalendar fechaFin, boolean modificablePorHuesped) throws Exception {
+		Hotel h = this.hoteles.get(nombreHotel);
+		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
+		
+		Reserva reserva = h.registrarReserva(cliente, th, fechaInicio, fechaFin, modificablePorHuesped);
+		cliente.agregarReserva(reserva);
+		reserva.enviarEmail();
+		return reserva;
+	}
+	
+	
+	public boolean confirmarDisponibilidad(String nombreHotel, String nombreTipoHabitacion,
+			GregorianCalendar fechaInicio, GregorianCalendar fechaFin) throws Exception {
+		Hotel h = this.hoteles.get(nombreHotel);
+		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
+		
+		return h.confirmarDisponibilidad(th, fechaInicio, fechaFin);
 	}
 }
