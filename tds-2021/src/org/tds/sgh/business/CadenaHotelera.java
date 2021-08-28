@@ -10,6 +10,7 @@ import org.tds.sgh.dtos.DTO;
 import org.tds.sgh.dtos.HotelDTO;
 import org.tds.sgh.dtos.HuespedDTO;
 import org.tds.sgh.dtos.ReservaDTO;
+import org.tds.sgh.infrastructure.Infrastructure;
 import org.tds.sgh.infrastructure.NotImplementedException;
 
 public class CadenaHotelera {
@@ -158,7 +159,10 @@ public class CadenaHotelera {
 	}
 
 	public Reserva tomarReserva(Reserva reserva) {
-		return reserva.asignarHabitacion();
+		reserva = reserva.asignarHabitacion();
+		reserva.enviarEmail();
+		Infrastructure.getInstance().getSistemaFacturacion().iniciarEstadia(DTO.getInstance().map(reserva));
+		return reserva;
 	}
 	
 	public Set<Hotel> sugerirAlternativas(String pais, String nombreTipoHabitacion, GregorianCalendar fechaInicio,

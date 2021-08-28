@@ -96,7 +96,7 @@ public class Hotel {
 
 	public Habitacion buscarHabitacionDisponible(TipoHabitacion tipoHabitacion) {
 		for (Habitacion hab : this.habitaciones.values()) {
-			if (hab.habDeTipo(tipoHabitacion) && this.habitacionesTomadas.containsValue(hab)) {
+			if (hab.habDeTipo(tipoHabitacion) && !this.habitacionesTomadas.containsValue(hab)) {
 				this.habitacionesTomadas.put(hab.getNombre(), hab);
 				return hab;
 			}
