@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.tds.sgh.dtos.ReservaDTO;
+
 public class Hotel {
 	// --------------------------------------------------------------------------------------------
 
@@ -70,5 +72,13 @@ public class Hotel {
 		Reserva reserva = new Reserva(cliente, this, th, fechaInicio, fechaFin, ModificablePorHuesped);
 		this.reservas.put(reserva.getCodigo(), reserva);
 		return reserva;
+	}
+
+	public Set<Reserva> buscarReservasPendientes() {
+		Set<Reserva> reservas = new HashSet<Reserva>();
+		for(Reserva res : this.reservas.values()) {
+			if(res.getEstado() == EstadoReserva.Pendiente) reservas.add(res);
+		}
+		return reservas;
 	}
 }

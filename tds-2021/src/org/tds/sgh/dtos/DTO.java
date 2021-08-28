@@ -2,6 +2,7 @@ package org.tds.sgh.dtos;
 
 import java.util.GregorianCalendar;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.tds.sgh.business.Cliente;
@@ -117,5 +118,15 @@ public class DTO {
 		}
 
 		return tiposHabitacionDTO;
+	}
+
+	public Set<ReservaDTO> mapReservas(Set<Reserva> reservas) {
+		Set<ReservaDTO> reservasDTO = new HashSet<ReservaDTO>();
+
+		for (Reserva reserva : reservas) {
+			reservasDTO.add(this.map(reserva));
+		}
+
+		return reservasDTO;
 	}
 }

@@ -28,7 +28,7 @@ public class ControllerFactory implements IControllerFactory
 	@Override
 	public ICancelarReservaController createCancelarReservaController()
 	{
-		return new CancelarReservaController();
+		return new CancelarReservaController(this.cadenaHotelera);
 	}
 	
 	@Override
@@ -40,12 +40,12 @@ public class ControllerFactory implements IControllerFactory
 	@Override
 	public IModificarReservaController createModificarReservaController()
 	{
-		return new ModificarReservaController();
+		return new ModificarReservaController(this.cadenaHotelera);
 	}
 	
 	@Override
 	public ITomarReservaController createTomarReservaController()
 	{
-		return new TomarReservaController();
+		return new TomarReservaController(this.cadenaHotelera);
 	}
 }

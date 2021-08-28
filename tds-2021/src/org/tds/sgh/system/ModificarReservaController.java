@@ -3,11 +3,19 @@ package org.tds.sgh.system;
 import java.util.GregorianCalendar;
 import java.util.Set;
 
+import org.tds.sgh.business.CadenaHotelera;
+import org.tds.sgh.business.Cliente;
 import org.tds.sgh.dtos.ClienteDTO;
 import org.tds.sgh.dtos.HotelDTO;
 import org.tds.sgh.dtos.ReservaDTO;
 
 public class ModificarReservaController implements IModificarReservaController {
+	private CadenaHotelera ch;
+	private Cliente clienteSeleccionado;
+	
+	public ModificarReservaController(CadenaHotelera ch) {
+		this.ch = ch;
+	}
 
 	@Override
 	public Set<ClienteDTO> buscarCliente(String patronNombreCliente) {

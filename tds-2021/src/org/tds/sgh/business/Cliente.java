@@ -53,4 +53,8 @@ public class Cliente {
 	public void agregarReserva(Reserva reserva) {
 		this.reservas.put(reserva.getCodigo(), reserva);
 	}
+
+	public Reserva buscarReservaPorCodigo(long codigoReserva) {
+		return this.reservas.get(codigoReserva);
+	}
 }

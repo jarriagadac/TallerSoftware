@@ -164,4 +164,15 @@ public class CadenaHotelera {
 	public Set<TipoHabitacion> listarTiposHabitacion() {
 		return new HashSet<TipoHabitacion>(this.tiposHabitacion.values());
 	}
+
+
+	public Set<Reserva> buscarReservasPendientes(String nombreHotel) {
+		Hotel h = this.hoteles.get(nombreHotel);
+		return h.buscarReservasPendientes();
+	}
+
+
+	public Reserva seleccionarReserva(Cliente cliente, long codigoReserva) {
+		return cliente.buscarReservaPorCodigo(codigoReserva);
+	}
 }
