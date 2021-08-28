@@ -10,7 +10,7 @@ public class Hotel {
 	// --------------------------------------------------------------------------------------------
 
 	private Map<String, Habitacion> habitaciones;
-	private Map<String, Reserva> reservas;
+	private Map<Long, Reserva> reservas;
 
 	private String nombre;
 
@@ -20,6 +20,7 @@ public class Hotel {
 
 	public Hotel(String nombre, String pais) {
 		this.habitaciones = new HashMap<String, Habitacion>();
+		this.reservas = new HashMap<Long, Reserva>();
 
 		this.nombre = nombre;
 
@@ -60,7 +61,14 @@ public class Hotel {
 		}
 		int cantRes = 0;
 		for(Reserva res : this.reservas.values()) {
-			if(res.tieneConflicto(th, fechaInicio, fechaFin) cantRes++;
+			if(res.tieneConflicto(th, fechaInicio, fechaFin)) cantRes++;
 		}
+		return cantHabs > cantRes;
+	}
+	
+	public Reserva registrarReserva(Cliente cliente, TipoHabitacion th, GregorianCalendar fechaInicio, GregorianCalendar fechaFin, boolean ModificablePorHuesped) {
+		Reserva reserva = new Reserva(cliente, this, th, fechaInicio, fechaFin, ModificablePorHuesped);
+		this.reservas.put(reserva.getCodigo(), reserva);
+		return reserva;
 	}
 }

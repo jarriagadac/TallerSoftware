@@ -8,7 +8,9 @@ import java.util.Set;
 
 import org.tds.sgh.dtos.DTO;
 import org.tds.sgh.dtos.HotelDTO;
+import org.tds.sgh.dtos.HuespedDTO;
 import org.tds.sgh.dtos.ReservaDTO;
+import org.tds.sgh.infrastructure.NotImplementedException;
 
 public class CadenaHotelera {
 	// --------------------------------------------------------------------------------------------
@@ -21,16 +23,28 @@ public class CadenaHotelera {
 
 	private Map<String, TipoHabitacion> tiposHabitacion;
 	
-	// TODO implementar
 	public Set<Hotel> sugerirAlternativas(String pais, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
 			GregorianCalendar fechaFin) throws Exception {
-		
+		Set<Hotel> hoteles = new HashSet<Hotel>();
+		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
+		for(Hotel h : this.hoteles.values()) {
+			if(h.confirmarDisponibilidad(th, fechaInicio, fechaFin) && h.getPais() == pais) {
+				hoteles.add(h);
+			}
+		}
+		return hoteles;
 	}
 	
-	// TODO implementar
-	public Reserva registrarReserva(String nombreHotel, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
+
+	public Reserva registrarReserva(Cliente cliente, String nombreHotel, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
 			GregorianCalendar fechaFin, boolean modificablePorHuesped) throws Exception {
+		Hotel h = this.hoteles.get(nombreHotel);
+		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
 		
+		Reserva reserva = h.registrarReserva(cliente, th, fechaInicio, fechaFin, modificablePorHuesped);
+		cliente.agregarReserva(reserva);
+		reserva.enviarEmail();
+		return reserva;
 	}
 	
 	

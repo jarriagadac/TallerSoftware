@@ -21,7 +21,7 @@ public class DTO {
 				reserva.getFechaInicio(), 
 				reserva.getFechaFin(), 
 				reserva.isModificablePorHuesped(), 
-				reserva.getEstado(),
+				reserva.getEstado().toString(),
 				reserva.getHabitacion().getNombre(), 
 				(HuespedDTO[]) reserva.getHuespedes().toArray());
 	}

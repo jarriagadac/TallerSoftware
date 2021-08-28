@@ -30,7 +30,7 @@ public class Habitacion
 	}
 	
 	public Boolean habDeTipo(TipoHabitacion th) {
-		if(this.tipoHabitacion.getNombre()==th.getNombre()) return true;
+		if(this.tipoHabitacion == th) return true;
 		return false;
 	}
 }

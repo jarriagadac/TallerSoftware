@@ -1,11 +1,16 @@
 package org.tds.sgh.business;
 
 import java.util.GregorianCalendar;
+import java.util.Random;
 import java.util.Set;
+
+import org.tds.sgh.infrastructure.ICalendario;
+import org.tds.sgh.infrastructure.ISistemaMensajeria;
+import org.tds.sgh.infrastructure.Infrastructure;
 
 public class Reserva {
 	private long codigo;
-	private String estado;
+	private EstadoReserva estado;
 	private GregorianCalendar fechaFin;
 	private GregorianCalendar fechaInicio;
 	private Habitacion habitacion;
@@ -21,10 +26,10 @@ public class Reserva {
 	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
-	public String getEstado() {
+	public EstadoReserva getEstado() {
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(EstadoReserva estado) {
 		this.estado = estado;
 	}
 	public GregorianCalendar getFechaFin() {
@@ -75,24 +80,32 @@ public class Reserva {
 	public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
 		this.tipoHabitacion = tipoHabitacion;
 	}
-	public Reserva(long codigo, String estado, GregorianCalendar fechaFin, GregorianCalendar fechaInicio,
-			Habitacion habitacion, Hotel hotel, Set<Huesped> huespedes, boolean modificablePorHuesped, Cliente cliente,
-			TipoHabitacion tipoHabitacion) {
+	public Reserva(Cliente cliente, Hotel hotel, TipoHabitacion tipoHabitacion, GregorianCalendar fechaFin, GregorianCalendar fechaInicio, boolean modificablePorHuesped) {
 		super();
-		this.codigo = codigo;
-		this.estado = estado;
+		this.codigo = new Random().nextLong();
+		this.estado = EstadoReserva.Pendiente;
 		this.fechaFin = fechaFin;
 		this.fechaInicio = fechaInicio;
-		this.habitacion = habitacion;
 		this.hotel = hotel;
-		this.huespedes = huespedes;
 		this.modificablePorHuesped = modificablePorHuesped;
 		this.cliente = cliente;
 		this.tipoHabitacion = tipoHabitacion;
 	}
 	
 	public Boolean tieneConflicto(TipoHabitacion th, GregorianCalendar fechaInicio, GregorianCalendar fechaFin) {
-		
+		if(this.tipoHabitacion == th && this.estado != EstadoReserva.Cancelada ) {
+			ICalendario cal = Infrastructure.getInstance().getCalendario();
+			boolean noTieneConflicto = cal.esAnterior(fechaFin, this.fechaInicio) || cal.esPosterior(fechaInicio, this.fechaFin);
+			return !noTieneConflicto;
+		}
 		return false;
+	}
+	
+	public void enviarEmail() {
+		ISistemaMensajeria sm = Infrastructure.getInstance().getSistemaMensajeria();
+		String destinatario = this.cliente.getMail();
+		String asunto = "Tu Reserva";
+		String mensaje = "Tu reserva fue actualizada.";
+		sm.enviarMail(destinatario, asunto, mensaje);
 	}
 }
