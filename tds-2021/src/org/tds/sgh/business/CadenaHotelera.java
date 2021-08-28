@@ -7,11 +7,8 @@ import java.util.Map;
 import java.util.Set;
 
 import org.tds.sgh.dtos.DTO;
-import org.tds.sgh.dtos.HotelDTO;
-import org.tds.sgh.dtos.HuespedDTO;
-import org.tds.sgh.dtos.ReservaDTO;
+import org.tds.sgh.infrastructure.ICalendario;
 import org.tds.sgh.infrastructure.Infrastructure;
-import org.tds.sgh.infrastructure.NotImplementedException;
 
 public class CadenaHotelera {
 	// --------------------------------------------------------------------------------------------
@@ -20,7 +17,6 @@ public class CadenaHotelera {
 	private Map<String, Hotel> hoteles;
 	private String nombre;
 	private Map<String, TipoHabitacion> tiposHabitacion;
-	//private Object reserva;
 	
 	// --------------------------------------------------------------------------------------------
 
@@ -194,6 +190,12 @@ public class CadenaHotelera {
 			GregorianCalendar fechaInicio, GregorianCalendar fechaFin) throws Exception {
 		Hotel h = this.hoteles.get(nombreHotel);
 		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
+		ICalendario cal = Infrastructure.getInstance().getCalendario();
+		
+		if (th == null) throw new Exception("No existe un tipo de habitación con el nombre indicado.");
+		if (cal.esPasada(fechaInicio)) throw new Exception("Fecha de inicio en el pasado");
+		if (cal.esPasada(fechaFin)) throw new Exception("Fecha de fin en el pasado");
+		if (cal.esPosterior(fechaInicio, fechaFin)) throw new Exception("Fecha de inicio en el pasado");
 		
 		return h.confirmarDisponibilidad(th, fechaInicio, fechaFin);
 	}

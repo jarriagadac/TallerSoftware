@@ -99,7 +99,7 @@ public class Reserva {
 	public Boolean tieneConflicto(TipoHabitacion th, GregorianCalendar fechaInicio, GregorianCalendar fechaFin) {
 		if(this.tipoHabitacion == th && this.estado != EstadoReserva.Cancelada ) {
 			ICalendario cal = Infrastructure.getInstance().getCalendario();
-			boolean noTieneConflicto = cal.esAnterior(fechaFin, this.fechaInicio) || cal.esPosterior(fechaInicio, this.fechaFin);
+			boolean noTieneConflicto = cal.esAnterior(fechaFin, this.fechaInicio) || cal.esPosterior(fechaInicio, this.fechaFin) || cal.esMismoDia(fechaInicio, this.fechaFin);
 			return !noTieneConflicto;
 		}
 		return false;
@@ -119,7 +119,9 @@ public class Reserva {
 	}
 
 	public boolean isActiva() {
+		ICalendario cal = Infrastructure.getInstance().getCalendario();
 		return this.estado == EstadoReserva.Pendiente;
+		//return this.estado == EstadoReserva.Pendiente && cal.esPosterior(this.fechaInicio, cal.getHoy());
 	}
 
 	public Reserva agregarHuesped(String nombre, String documento) {
