@@ -33,10 +33,13 @@ public class CadenaHotelera {
 		
 	}
 	
-	// TODO implementar
+	
 	public boolean confirmarDisponibilidad(String nombreHotel, String nombreTipoHabitacion,
 			GregorianCalendar fechaInicio, GregorianCalendar fechaFin) throws Exception {
-		return true;
+		Hotel h = this.hoteles.get(nombreHotel);
+		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
+		
+		return h.confirmarDisponibilidad(th, fechaInicio, fechaFin);
 	}
 
 	// --------------------------------------------------------------------------------------------

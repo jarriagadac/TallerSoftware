@@ -14,6 +14,7 @@ public class Reserva {
 	private boolean modificablePorHuesped;
 	private Cliente cliente;
 	private TipoHabitacion tipoHabitacion;
+	
 	public long getCodigo() {
 		return codigo;
 	}
@@ -90,5 +91,8 @@ public class Reserva {
 		this.tipoHabitacion = tipoHabitacion;
 	}
 	
-	
+	public Boolean tieneConflicto(TipoHabitacion th, GregorianCalendar fechaInicio, GregorianCalendar fechaFin) {
+		
+		return false;
+	}
 }
