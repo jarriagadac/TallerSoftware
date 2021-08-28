@@ -32,7 +32,8 @@ public class HacerReservaController implements IHacerReservaController {
 	@Override
 	public ClienteDTO registrarCliente(String rut, String nombre, String direccion, String telefono, String mail)
 			throws Exception {
-		return DTO.getInstance().map(this.ch.agregarCliente(rut, nombre, direccion, telefono, mail));
+		this.clienteSeleccionado = this.ch.agregarCliente(rut, nombre, direccion, telefono, mail);
+		return DTO.getInstance().map(this.clienteSeleccionado);
 	}
 
 	@Override

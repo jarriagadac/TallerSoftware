@@ -13,6 +13,9 @@ import org.tds.sgh.business.TipoHabitacion;
 
 public class DTO {
 	public ReservaDTO map(Reserva reserva) {
+		HuespedDTO[] huespedes = null;
+		if(reserva.getHuespedes() != null) huespedes = (HuespedDTO[]) reserva.getHuespedes().toArray();
+		
 		return new ReservaDTO(
 				reserva.getCodigo(), 
 				reserva.getCliente().getRut(), 
@@ -22,8 +25,8 @@ public class DTO {
 				reserva.getFechaFin(), 
 				reserva.isModificablePorHuesped(), 
 				reserva.getEstado().toString(),
-				reserva.getHabitacion().getNombre(), 
-				(HuespedDTO[]) reserva.getHuespedes().toArray());
+				reserva.getNombreHabitacion(), 
+				huespedes);
 	}
 	
 	public Set<HuespedDTO> mapHuespedes(Set<Huesped> huespedes) {

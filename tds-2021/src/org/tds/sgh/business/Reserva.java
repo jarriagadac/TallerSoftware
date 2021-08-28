@@ -20,6 +20,18 @@ public class Reserva {
 	private Cliente cliente;
 	private TipoHabitacion tipoHabitacion;
 	
+	public Reserva(Cliente cliente, Hotel hotel, TipoHabitacion tipoHabitacion, GregorianCalendar fechaInicio, GregorianCalendar fechaFin, boolean modificablePorHuesped) {
+		this.cliente = cliente;
+		this.codigo = Math.abs(new Random().nextLong());
+		this.estado = EstadoReserva.Pendiente;
+		this.fechaFin = fechaFin;
+		this.fechaInicio = fechaInicio;
+		this.hotel = hotel;
+		this.modificablePorHuesped = modificablePorHuesped;
+		this.cliente = cliente;
+		this.tipoHabitacion = tipoHabitacion;
+	}
+	
 	public long getCodigo() {
 		return codigo;
 	}
@@ -80,17 +92,7 @@ public class Reserva {
 	public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
 		this.tipoHabitacion = tipoHabitacion;
 	}
-	public Reserva(Cliente cliente, Hotel hotel, TipoHabitacion tipoHabitacion, GregorianCalendar fechaFin, GregorianCalendar fechaInicio, boolean modificablePorHuesped) {
-		super();
-		this.codigo = new Random().nextLong();
-		this.estado = EstadoReserva.Pendiente;
-		this.fechaFin = fechaFin;
-		this.fechaInicio = fechaInicio;
-		this.hotel = hotel;
-		this.modificablePorHuesped = modificablePorHuesped;
-		this.cliente = cliente;
-		this.tipoHabitacion = tipoHabitacion;
-	}
+	
 	
 	public Boolean tieneConflicto(TipoHabitacion th, GregorianCalendar fechaInicio, GregorianCalendar fechaFin) {
 		if(this.tipoHabitacion == th && this.estado != EstadoReserva.Cancelada ) {
@@ -107,5 +109,10 @@ public class Reserva {
 		String asunto = "Tu Reserva";
 		String mensaje = "Tu reserva fue actualizada.";
 		sm.enviarMail(destinatario, asunto, mensaje);
+	}
+	
+	public String getNombreHabitacion() {
+		if(this.habitacion == null) return null;
+		return this.habitacion.getNombre();
 	}
 }
