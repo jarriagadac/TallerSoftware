@@ -28,28 +28,24 @@ public class ControllerFactory implements IControllerFactory
 	@Override
 	public ICancelarReservaController createCancelarReservaController()
 	{
-		// TODO
-		throw new NotImplementedException();
+		return new CancelarReservaController();
 	}
 	
 	@Override
 	public IHacerReservaController createHacerReservaController()
 	{
-		// TODO
-		throw new NotImplementedException();
+		return new HacerReservaController();
 	}
 	
 	@Override
 	public IModificarReservaController createModificarReservaController()
 	{
-		// TODO
-		throw new NotImplementedException();
+		return new ModificarReservaController();
 	}
 	
 	@Override
 	public ITomarReservaController createTomarReservaController()
 	{
-		// TODO
-		throw new NotImplementedException();
+		return new TomarReservaController();
 	}
 }
