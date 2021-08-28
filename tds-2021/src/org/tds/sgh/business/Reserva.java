@@ -115,4 +115,25 @@ public class Reserva {
 		if(this.habitacion == null) return null;
 		return this.habitacion.getNombre();
 	}
+
+	public boolean isActiva() {
+		return this.estado == EstadoReserva.Pendiente;
+	}
+
+	public Reserva agregarHuesped(String nombre, String documento) {
+		Huesped hue = new Huesped(nombre, documento);
+		this.huespedes.add(hue);
+		return this;
+	}
+
+	public Reserva modificarReserva(Hotel h, TipoHabitacion th, GregorianCalendar fechaInicio, GregorianCalendar fechaFin, boolean modificablePorHuesped) {
+		this.hotel.quitarReserva(this);
+		this.hotel = h;
+		this.tipoHabitacion = th;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.modificablePorHuesped = modificablePorHuesped;
+		this.hotel.agregarReserva(this);
+		return this;
+	}
 }

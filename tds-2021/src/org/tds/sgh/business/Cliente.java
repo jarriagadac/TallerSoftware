@@ -1,7 +1,9 @@
 package org.tds.sgh.business;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Cliente {
 	// --------------------------------------------------------------------------------------------
@@ -56,5 +58,13 @@ public class Cliente {
 
 	public Reserva buscarReservaPorCodigo(long codigoReserva) {
 		return this.reservas.get(codigoReserva);
+	}
+
+	public Set<Reserva> buscarReservasActivas() {
+		Set<Reserva> reservas = new HashSet<Reserva>();
+		for(Reserva res : this.reservas.values()) {
+			if(res.isActiva()) reservas.add(res);
+		}
+		return reservas;
 	}
 }

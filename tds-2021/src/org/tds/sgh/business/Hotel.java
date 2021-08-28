@@ -81,4 +81,12 @@ public class Hotel {
 		}
 		return reservas;
 	}
+
+	public void quitarReserva(Reserva reserva) {
+		this.reservas.remove(reserva.getCodigo());
+	}
+
+	public void agregarReserva(Reserva reserva) {
+		this.reservas.put(reserva.getCodigo(), reserva);
+	}
 }

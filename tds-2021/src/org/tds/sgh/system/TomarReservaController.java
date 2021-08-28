@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.tds.sgh.business.CadenaHotelera;
 import org.tds.sgh.business.Cliente;
+import org.tds.sgh.business.Reserva;
 import org.tds.sgh.dtos.ClienteDTO;
 import org.tds.sgh.dtos.DTO;
 import org.tds.sgh.dtos.HotelDTO;
@@ -13,6 +14,7 @@ import org.tds.sgh.dtos.ReservaDTO;
 public class TomarReservaController implements ITomarReservaController {
 	private CadenaHotelera ch;
 	private Cliente clienteSeleccionado;
+	private Reserva reservaSeleccionada;
 	
 	public TomarReservaController(CadenaHotelera ch) {
 		this.ch = ch;
@@ -20,8 +22,7 @@ public class TomarReservaController implements ITomarReservaController {
 	
 	@Override
 	public Set<ReservaDTO> buscarReservasDelCliente() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return DTO.getInstance().mapReservas(this.ch.buscarReservasDelCliente(this.clienteSeleccionado));
 	}
 
 	@Override
@@ -63,9 +64,8 @@ public class TomarReservaController implements ITomarReservaController {
 	@Override
 	public ReservaDTO modificarReserva(String nombreHotel, String nombreTipoHabitacion, GregorianCalendar fechaInicio,
 			GregorianCalendar fechaFin, boolean modificablePorHuesped) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		return DTO.getInstance().map(this.ch.modificarReserva(this.reservaSeleccionada, nombreHotel, nombreTipoHabitacion, fechaInicio, fechaFin, modificablePorHuesped));
+	} 
 
 	@Override
 	public Set<ReservaDTO> buscarReservasPendientes(String nombreHotel) throws Exception {
@@ -74,13 +74,13 @@ public class TomarReservaController implements ITomarReservaController {
 
 	@Override
 	public ReservaDTO seleccionarReserva(long codigoReserva) throws Exception {
-		return DTO.getInstance().map(this.ch.seleccionarReserva(this.clienteSeleccionado, codigoReserva));
+		this.reservaSeleccionada = this.ch.seleccionarReserva(this.clienteSeleccionado, codigoReserva);
+		return DTO.getInstance().map(this.reservaSeleccionada);
 	}
 
 	@Override
 	public ReservaDTO registrarHuesped(String nombre, String documento) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return DTO.getInstance().map(this.ch.registrarHuesped(this.reservaSeleccionada, nombre, documento));
 	}
 
 	@Override

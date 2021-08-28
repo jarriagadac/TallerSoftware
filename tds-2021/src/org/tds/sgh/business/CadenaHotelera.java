@@ -175,4 +175,24 @@ public class CadenaHotelera {
 	public Reserva seleccionarReserva(Cliente cliente, long codigoReserva) {
 		return cliente.buscarReservaPorCodigo(codigoReserva);
 	}
+
+
+	public Set<Reserva> buscarReservasDelCliente(Cliente cliente) {
+		return cliente.buscarReservasActivas();
+	}
+
+
+	public Reserva registrarHuesped(Reserva reserva, String nombre, String documento) {
+		return reserva.agregarHuesped(nombre, documento);
+	}
+
+
+	public Reserva modificarReserva(Reserva reserva, String nombreHotel, String nombreTipoHabitacion,
+			GregorianCalendar fechaInicio, GregorianCalendar fechaFin, boolean modificablePorHuesped) {
+		Hotel h = this.hoteles.get(nombreHotel);
+		TipoHabitacion th = this.tiposHabitacion.get(nombreTipoHabitacion);
+		reserva = reserva.modificarReserva(h, th, fechaInicio, fechaFin, modificablePorHuesped);
+		reserva.enviarEmail();
+		return reserva;
+	}
 }
